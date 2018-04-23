@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="travelersTours">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="author" content="TravelersTours">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title page-title></title>
+  <!-- Estilos -->
+  <link rel="stylesheet" href="./sources/fontawesome/web-fonts-with-css/css/fontawesome-all.min.css">
+  <link rel="stylesheet" href="./sources/styles.min.css">
+  <link rel="stylesheet" href="./sources/styles/estilos.css">
+</head>
+
+<body>
+  <div ui-view></div>
+  <!-- Dependencias -->
+  <script src="./lib/bootstrap/jquery.min.js"></script>
+  <script src="./lib/bootstrap/popper.min.js"></script>
+  <script src="./lib/bootstrap/bootstrap.min.js"></script>
+  <script src="./lib/sweetalert/sweetalert.min.js"></script>
+  <!-- Script del google maps -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDA1QyikCLP1WGWfNtPbZUYNA-lbFlCrDo"></script>
+  <!-- Script de Angular -->
+  <script src="./lib/angular/angular.min.js"></script>
+  <!-- Dependencias de Agular -->
+  <script src="./lib/angular/routing/angular-ui-router.min.js"></script>
+  <script src="./lib/angular/routing/ocLazyLoad.min.js"></script>
+  <script src="./lib/angular/routing/page-title.min.js"></script>
+  <script src="./lib/angular/dependencies/angular-messages.min.js"></script>
+  <script src="./lib/angular/dependencies/angular-scroll.min.js"></script>
+  <script src="./lib/angular/dependencies/ng-file-upload.min.js"></script>
+  <script src="./lib/angular/dependencies/ng-file-upload-shim.min.js"></script>
+  <script src="./lib/angular/dependencies/ng-map.min.js"></script>
+
+  <!-- Script de la aplicación -->
+  <script src="./clases.js"></script>
+  <script src="./app.js"></script>
+  <script src="./route.js"></script>
+
+  <!-- Servicios -->
+  <script src="./components//services/login.service.js"></script>
+  <script src="./components/services/hotel.service.js"></script>
+  <script src="./components/services/usuarios.service.js"></script>
+
+  <!-- Directivas -->
+  <script src="./components/directives/header/header.directive.js"></script>
+  <script src="./components/directives/footer/footer.directive.js"></script>
+
+  <!-- <script src="./components//directives/headline/headline.directive.js"></script> -->
+  <script src="./components/directives/sidebar/sidebar.directive.js"></script>
+  <script src="./components/directives/inputFile.directive.js"></script>
+  <script src="./components/directives/passwordMatch.directive.js"></script>
+  
+  <!-- Factorias -->
+  <script src="./components/factories/dataStorageFactory.js"></script>
+  <script src="./components/factories/localStorageFactory.js"></script>
+  <script src="./components/factories/dataStorageFactory.js"></script>
+</body>
+
+</html>

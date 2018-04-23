@@ -1,22 +1,22 @@
 'use strict';
 
 const gulp = require('gulp'),
-      connect = require('gulp-connect'),
-      sass = require('gulp-sass'),
-      cssnano = require('gulp-cssnano'),
-      rename = require('gulp-rename'),
-      nodemon = require('gulp-nodemon'),
-      todo = require('gulp-todo'),
-      browserSync = require('browser-sync'),
-      paths = {
-        views : './public/components/**/**/*.html',
-        styles: './public/sources/styles/**/*.scss',
-        impSass : './public/sources/styles/style.scss',
-        princJs : './**/*.js',
-        js: './public/components/**/**/*.js',
-        jsBackEnd: './api/**/**/**/*.js',
-        excss: './public/*.css'
-      };
+  connect = require('gulp-connect'),
+  sass = require('gulp-sass'),
+  cssnano = require('gulp-cssnano'),
+  rename = require('gulp-rename'),
+  nodemon = require('gulp-nodemon'),
+  todo = require('gulp-todo'),
+  browserSync = require('browser-sync'),
+  paths = {
+    views: './public/components/**/**/*.html',
+    styles: './public/sources/styles/**/*.scss',
+    impSass: './public/sources/styles/style.scss',
+    princJs: './**/*.js',
+    js: './public/components/**/**/*.js',
+    jsBackEnd: './api/**/**/**/*.js',
+    excss: './public/*.css'
+  };
 
 gulp.task('connect', () => {
   connect.server({
@@ -32,8 +32,8 @@ gulp.task('connect', () => {
 
 gulp.task('to-do', () => {
   gulp.src([paths.js, paths.princJs, paths.jsBackEnd])
-  .pipe(todo())
-  .pipe(gulp.dest('./'));
+    .pipe(todo())
+    .pipe(gulp.dest('./'));
 });
 
 gulp.task('dependencies', () => {
@@ -81,10 +81,10 @@ gulp.task('reload', () => {
 
 gulp.task('styles', () => {
   gulp.src(paths.impSass)
-  .pipe(sass().on('error', sass.logError))
-  .pipe(cssnano())
-  .pipe(rename('styles.min.css'))
-  .pipe(gulp.dest('./public/sources'));
+    .pipe(sass().on('error', sass.logError))
+    .pipe(cssnano())
+    .pipe(rename('styles.min.css'))
+    .pipe(gulp.dest('./public/sources'));
 });
 
 gulp.task('watch', () => {

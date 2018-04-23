@@ -1,0 +1,40 @@
+#fondoLanding{
+    padding-top: 4%;
+  
+    background-image: url('../img/Inicio.jpg');
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+#login{
+    padding: 5% 0%;
+    margin-bottom: 10%;
+}
+
+#btn-login{
+    background-color: rgb(85, 228, 85);
+}
+
+#nuevoUsuario{
+    background-color: rgba(85, 228, 85,0.6);
+    margin: 20%;
+    padding: 2%;
+    color: #000;
+    font-weight: bold;
+    border-radius: 10%;
+}
+
+#underlanding{
+    text-align: center;
+    margin-top:10%; 
+    padding: 3%;
+    background-color: rgb(85, 228, 85);
+}
+#underlanding h2{
+    padding: 1em;
+}
+
+#underlanding h4{
+    padding: 1em;
+}
+

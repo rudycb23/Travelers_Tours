@@ -1,0 +1,18 @@
+[
+  {
+    "name":"Prealertado",
+    "_id": "0"
+  },
+  {
+    "name":"Saliendo de aduana",
+    "_id": "1"
+  },
+  {
+    "name":"Entregado a repartidor",
+    "_id": "3"
+  },
+  {
+    "name":"Entregado a cliente",
+    "_id": "4"
+  }
+]
