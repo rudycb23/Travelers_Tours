@@ -1,40 +1,56 @@
-#fondoLanding{
+#fondoLanding {
     padding-top: 4%;
-  
     background-image: url('../img/Inicio.jpg');
     background-size: 100%;
     background-repeat: no-repeat;
 }
 
-#login{
+#login {
     padding: 5% 0%;
     margin-bottom: 10%;
 }
 
-#btn-login{
+#btn-login {
     background-color: rgb(85, 228, 85);
 }
 
-#nuevoUsuario{
-    background-color: rgba(85, 228, 85,0.6);
-    margin: 20%;
-    padding: 2%;
+#nuevoUsuario {
+    background-color: rgba(255, 255, 255, 0.6);
+    margin: 20% 15%;
+    padding: 4%;
     color: #000;
-    font-weight: bold;
-    border-radius: 10%;
+    font-weight: 450;
+    border-radius: 5%;
 }
 
-#underlanding{
+#underlanding {
     text-align: center;
-    margin-top:10%; 
+    margin-top: 10%;
     padding: 3%;
-    background-color: rgb(85, 228, 85);
+    background-color: rgb(255, 253, 225);
 }
-#underlanding h2{
+
+#elemento-underlanding {
+    padding: 3%;
+}
+
+#underlanding h2 {
     padding: 1em;
 }
 
-#underlanding h4{
+#underlanding h4 {
     padding: 1em;
 }
 
+#registrarCliente input, #registrarCliente select {
+    border-width: 2px;
+}
+
+#registrarCliente input:hover, #registrarCliente select:hover{
+    border-color: rgb(85, 228, 85);
+    border-width: 2px;
+}
+
+#footer-lista li {
+    float: left;
+}

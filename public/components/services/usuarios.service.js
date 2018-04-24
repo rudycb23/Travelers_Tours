@@ -13,10 +13,10 @@
     let publicAPI = {
       agregarUsuario: _agregarUsuario,
       obtenerlistadeusuarios: _obtenerlistadeusuarios,
-      obtenerlistadeFiltrada: _obtenerListaFiltrada,
+      obtenerListaFiltrada: _obtenerListaFiltrada,
       retornarCorreosUsuarios: _retornarCorreosUsuarios,
       actualizarUsuario: _actualizarUsuario,
-     
+
     };
     return publicAPI;
 
@@ -39,7 +39,7 @@
       if (usuariorepetido == true) {
         registrovalido = false;
       } else {
-        
+
         registrovalido = dataStorageFactory.setUserData(pNuevoUsuario);
       }
 
@@ -56,22 +56,10 @@
       listadeusuarioslocal.forEach(obj => {
         let tempfecha = new Date(obj.fecha);
 
-        switch (Number(obj.rol)) {
-          
+        let tempCliente = new Usuario(obj.cedula, obj.primerNombre, obj.segundoNombre, obj.primerApellido, obj.segundoApellido, obj.edad, obj.genero, obj.correo, obj.telefono, obj.contrasenna, obj.rol);
 
-          case 2:
-            let tempCliente = new Cliente(obj.cedula, obj.primerNombre, obj.segundoNombre, obj.primerApellido, obj.segundoApellido, obj.edad, obj.genero, obj.correo, obj.telefono, obj.contrasenna, obj.rol);
+        listadeusuarios.push(tempCliente);
 
-            listadeusuarios.push(tempCliente);
-            break;
-
-          default:
-
-            let tempUsuario = new Usuario(obj.cedula, obj.primerNombre, obj.segundoNombre, obj.primerApellido, obj.segundoApellido, obj.edad, obj.genero, obj.correo, obj.telefono, obj.contrasenna, obj.rol);
-
-            listadeusuarios.push(tempUsuario);
-            break;
-        }
       });
       return listadeusuarios;
     }
@@ -81,12 +69,12 @@
       return modificacionExitosa;
     }
 
-    function _obtenerListaFiltrada(pnumrol) {
+    function _obtenerListaFiltrada() {
       let listadeusuarios = _obtenerlistadeusuarios(),
         listaFiltrada = [];
 
       for (let i = 0; i < listadeusuarios.length; i++) {
-        if (listadeusuarios[i].getRol() == pnumrol) {
+        if (listadeusuarios[i].getRol() == 2) {
           listaFiltrada.push(listadeusuarios[i]);
         }
       }

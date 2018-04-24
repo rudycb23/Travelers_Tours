@@ -28,24 +28,8 @@ class Usuario {
   }
 }
 
-class Administrador extends Usuario {
-  constructor(pcedula, pprimerNombre, psegundoNombre, pprimerApellido, psegundoApellido, pedad, pgenero, pcorreo, ptelefono, pcontrasenna, prol) {
-
-    super(pcedula, pprimerNombre, psegundoNombre, pprimerApellido, psegundoApellido, pedad, pgenero, pcorreo, ptelefono, pcontrasenna, prol);
-
-  }
-} // administrador
-
-class Cliente extends Usuario {
-  constructor(pcedula, pprimerNombre, psegundoNombre, pprimerApellido, psegundoApellido, pedad, pgenero, pcorreo, ptelefono, pcontrasenna, prol) {
-
-    super(pcedula, pprimerNombre, psegundoNombre, pprimerApellido, psegundoApellido, pedad, pgenero, pcorreo, ptelefono, pcontrasenna, prol);
-
-  }
-} // cliente
-
 class Hotel {
-  constructor(pidHotel, pprovincia, pcanton, pdistrito, pdireccion, ptelefonoServicio, pcorreoServicio, ptelefonoReservaciones, pcorreoReservaciones, pfotoHotel, pvaloracion) {
+  constructor(pidHotel, pprovincia, pcanton, pdistrito, pdireccion, ptelefonoServicio, pcorreoServicio, ptelefonoReservaciones, pcorreoReservaciones, pfotoHotel, pvaloracion, pestadohotel) {
 
 
     this.idHotel                = pidHotel;
@@ -59,6 +43,7 @@ class Hotel {
     this.correoReservaciones    = pcorreoReservaciones;
     this.fotoHotel              = pfotoHotel;
     this.valoracion             = pvaloracion;
+    this.estadohotel            = pestadohotel;
   }
   getIdHotel() {
     return this.idHotel;

@@ -12,14 +12,15 @@ module.exports.registrar = (req, res) => {
     telefonoReservaciones  : req.body.telefonoReservaciones,
     correoReservaciones    : req.body.correoReservaciones,
     fotoHotel              : req.body.fotoHotel,
-    valoracion             : req.body.valoracion
+    valoracion             : req.body.valoracion,
+    estadohotel            : req.body.estadohotel
   });
 
   newHotel.save((err) => {
     if (err) {
-      res.json({ success: false, msg: 'Ha ocurrido un error registrando al viajero' + err });
+      res.json({ success: false, msg: 'Ha ocurrido un error registrando al hotel' + err });
     } else {
-      res.json({ success: true, msg: 'El el viajero se ha registrado correctamente' });
+      res.json({ success: true, msg: 'El hotel se ha registrado correctamente' });
     }
   });
 };

@@ -25,7 +25,7 @@
       if (confirmarContrasenna == true) {
         let rol = 2;
 
-        let objNuevoViajero = new Cliente(ptravelerNuevo.cedula, ptravelerNuevo.primerNombre, ptravelerNuevo.segundoNombre, ptravelerNuevo.primerApellido, ptravelerNuevo.segundoApellido, ptravelerNuevo.edad, ptravelerNuevo.genero, ptravelerNuevo.correo, ptravelerNuevo.telefono, ptravelerNuevo.contrasenna, rol);
+        let objNuevoViajero = new Usuario(ptravelerNuevo.cedula, ptravelerNuevo.primerNombre, ptravelerNuevo.segundoNombre, ptravelerNuevo.primerApellido, ptravelerNuevo.segundoApellido, ptravelerNuevo.edad, ptravelerNuevo.genero, ptravelerNuevo.correo, ptravelerNuevo.telefono, ptravelerNuevo.contrasenna, rol);
 
         console.log(objNuevoViajero);
 
@@ -39,8 +39,8 @@
             icon: "success",
             button: "Aceptar"
           });
-          // vm.clienteNuevo = null;
-          // $state.go('paginaInicio');
+          vm.clienteNuevo = null;
+          $state.go('paginaLogin');
         } else {
           swal({
             title: "Ha ocurrido un Error",

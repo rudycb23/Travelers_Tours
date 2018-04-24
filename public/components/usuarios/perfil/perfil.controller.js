@@ -1,18 +1,18 @@
 (() => {
   'use strict';
   angular
-  .module('correosCR')
+  .module('travelersTours')
   .controller('perfilController', perfilController);
 
-  perfilController.$inject = ['servicioUsuarios', 'servicioInicioSesion']
+  perfilController.$inject = ['servicioUsuarios', 'servicioLogin']
 
-  function perfilController(servicioUsuarios, servicioInicioSesion){
+  function perfilController(servicioUsuarios, servicioLogin){
     const vm = this;
 
-    const userAuth = servicioInicioSesion.getAuthUser();
+    const userAuth = servicioLogin.getAuthUser();
 
     if(userAuth == undefined){
-      $state.go('inicioSesion');
+      $state.go('main');
     }
 
     vm.usuarioActivo = userAuth;

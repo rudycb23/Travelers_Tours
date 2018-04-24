@@ -12,9 +12,14 @@
       setUserData: _setUserData,
       updateUserData: _updateUserData,
 
-      getHotel: _getHotel,
-      setPackage: _setHotel,
-      updateHotel: _updateHotel,
+      getHotelData: _getHotelData,
+      setHotelData: _setHotelData,
+      updateHotelData: _updateHotelData,
+
+
+      setData: _setData,
+      removeData: _removeData,
+      getData: _getData,
 
       setSession: _setSession,
       closeSession: _closeSession,
@@ -35,8 +40,6 @@
       });
 
       peticion.done((usuarios) => {
-        // console.log('Datos que vienen desde la base de datos')
-        // console.log(usuarios);
         listaUsuarios = usuarios;
       });
       peticion.fail(() => {
@@ -152,7 +155,7 @@
       });
     }
 
-    function _getHotel() {
+    function _getHotelData() {
       let listahoteles = [];
 
       let peticion = $.ajax({
@@ -179,7 +182,7 @@
       return listahoteles;
     }
 
-    function _setHotel(nuevoHotel) {
+    function _setHotelData(nuevoHotel) {
       let response;
 
       let peticion = $.ajax({
@@ -199,7 +202,8 @@
           'telefonoReservaciones': nuevoHotel.telefonoReservaciones,
           'correoReservaciones': nuevoHotel.correoReservaciones,
           'fotoHotel': nuevoHotel.fotoHotel,
-          'valoracion': nuevoHotel.valoracion
+          'valoracion': nuevoHotel.valoracion,
+          'estadohotel':nuevoHotel.estadohotel
         }
       });
 
@@ -216,7 +220,7 @@
     }
 
 
-    function _updateHotel(hotelActualizado) {
+    function _updateHotelData(hotelActualizado) {
       let response;
 
       let peticion = $.ajax({
@@ -236,7 +240,8 @@
           'telefonoReservaciones': hotelActualizado.telefonoReservaciones,
           'correoReservaciones': hotelActualizado.correoReservaciones,
           'fotoHotel': hotelActualizado.fotoHotel,
-          'valoracion': hotelActualizado.valoracion
+          'valoracion': hotelActualizado.valoracion,
+          'estadohotel':nuevoHotel.estadohotel
         }
       });
 

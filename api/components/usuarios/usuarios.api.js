@@ -26,6 +26,7 @@ module.exports.registrar = (req, res) => {
 
 module.exports.listarTodos = (req, res) => {
   travelerModel.find().then((user) => {
+    console.log(user)
     res.send(user);
   });
 };

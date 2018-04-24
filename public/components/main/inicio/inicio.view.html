@@ -1,39 +1,86 @@
 <main class="hero" id="mainInicio">
-  <div class="container">
-
-    <section class="row">
-      <div class="col-md-12">
-        <h1 class="text-center my-5 pt-2">Correos de Costa Rica</h1>
-      </div>
-    </section>
-    <section class="row">
-      <div class="col-md-4 d-flex justify-content-center">
-        <div class="card" style="width: 15rem;">
-          <img class="card-img-top" src="sources/img/avatar.jpeg" width="200px" height="200px" alt="Card image cap">
-          <div class="card-body">
-            <h5 class="card-title text-center">Ahorra tiempo en tus envios:</h5>
-            <p class="card-text text-center">Pregunte por nuestros servicios diseñados de acuerdo a los requerimientos de su empresa.</p>
-          </div>
+    <div class="container">
+  
+      <section class="row">
+        <div class="col-md-12">
+          <h1 class="text-center my-5 pt-2">Menú principal</h1>
         </div>
-      </div>
-      <div class="col-md-4 d-flex justify-content-center">
-        <div class="card" style="width: 15rem;">
-          <img class="card-img-top" src="sources/img/avatar.jpeg" width="200px" height="200px" alt="Card image cap">
-          <div class="card-body">
-            <h5 class="card-title text-center">Consulta las tarifas de correos:</h5>
-            <p class="card-text text-center">Consulta las tarifas de todos los productos y servicios de Correos de Costa Rica.</p>
-          </div>
+      </section>
+      <section class="row">
+        <div class="col-md-4 d-flex justify-content-center">
+          <a ui-sref="main.perfil">
+            <div class="card" style="width: 15rem;">
+              <img class="card-img-top" src="../../sources/img/miPerfil.jpg" width="200px" height="200px" alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title text-center">Mi perfil</h5>
+              </div>
+            </div>
+          </a>
         </div>
-      </div>
-      <div class="col-md-4 d-flex justify-content-center">
-        <div class="card" style="width: 15rem;">
-          <img class="card-img-top" src="sources/img/puertaApuerta.jpg" width="200px" height="200px" alt="Card image cap">
-          <div class="card-body">
-            <h5 class="card-title text-center">Servicio puerta a puerta</h5>
-            <p class="card-text text-center">Somos especialista en el reparto Puerta a Puerta ya sea en entregas personales, de comercio u oficinas.</p>
-          </div>
+  
+        <div class="col-md-4 d-flex justify-content-center" ng-if="vm.rolUsuario==1">
+          <a ui-sref="main.registrarHotel">
+            <div class="card" style="width: 15rem;">
+              <img class="card-img-top" src="../../sources/img/Hoteles.jpg" width="200px" height="200px" alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title text-center">Registrar hotel</h5>
+              </div>
+            </div>
+          </a>
         </div>
-      </div>
-    </section>
-  </div>
-</main>
+  
+        <div class="col-md-4 d-flex justify-content-center" ng-if="vm.rolUsuario==1">
+          <a ui-sref="">
+            <div class="card" style="width: 15rem;">
+              <img class="card-img-top" src="../../sources/img/miPerfil.jpg" width="200px" height="200px" alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title text-center">Registrar cliente</h5>
+              </div>
+            </div>
+          </a>
+        </div>
+  
+        <div class="col-md-4 d-flex justify-content-center">
+          <a ui-sref="main.listarHoteles">
+            <div class="card" style="width: 15rem;">
+              <img class="card-img-top" src="../../sources/img/Hoteles.jpg" width="200px" height="200px" alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title text-center">Hoteles</h5>
+              </div>
+            </div>
+          </a>
+        </div>
+  
+        <div class="col-md-4 d-flex justify-content-center" ng-if="vm.rolUsuario==1">
+          <a ui-sref="main.listarClientes">
+            <div class="card" style="width: 15rem;">
+              <img class="card-img-top" src="../../sources/img/miPerfil.jpg" width="200px" height="200px" alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title text-center">Clientes</h5>
+              </div>
+            </div>
+          </a>
+        </div>
+  
+        <div class="col-md-4 d-flex justify-content-center">
+          <a ui-sref="miPerfil">
+            <div class="card" style="width: 15rem;">
+              <img class="card-img-top" src="../../sources/img/Travelers_Tours.jpg" width="200px" height="200px" alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title text-center">Travelers Tours</h5>
+              </div>
+            </div>
+          </a>
+        </div>
+  
+  
+        <a class="nav-link">
+          <button class="btn btn-danger" type="button" ng-click="vm.cerrarSesion()">
+            <i class="fas fa-power-off"></i>
+            Cerrar sesión
+          </button>
+        </a>
+  
+      </section>
+    </div>
+  </main>

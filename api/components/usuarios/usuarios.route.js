@@ -2,7 +2,6 @@ const express = require('express'),
       router = express.Router(),
       users = require('./usuarios.api');
 
-
 router.param('id', (req, res, next, id) => {
   req.body.id = id;
   next();

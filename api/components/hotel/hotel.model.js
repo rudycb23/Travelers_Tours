@@ -11,7 +11,8 @@ let UserSchema = new mongoose.Schema({
     telefonoReservaciones  : { type: String, require: true },
     correoReservaciones    : { type: String, require: true },
     fotoHotel              : { type: String, require: true },
-    valoracion             : { type: String, require: true }
+    valoracion             : { type: String, require: true },
+    estadohotel            : { type: Boolean, require: true}
 });
 
 module.exports = mongoose.model('Hotel', UserSchema);

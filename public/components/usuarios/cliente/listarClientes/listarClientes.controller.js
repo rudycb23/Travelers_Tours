@@ -4,17 +4,15 @@
     .module('travelersTours')
     .controller('controladorListarClientes', controladorListarClientes);
 
-    controladorListarClientes.$inject = ['$http', '$stateParams', '$state', 'servicioUsuarios', 'servicioInicioSesion']; 
+  controladorListarClientes.$inject = ['$stateParams', '$state', 'servicioUsuarios', 'servicioLogin'];
 
-  function controladorListarClientes($http, $stateParams, $state, servicioUsuarios, servicioInicioSesion) {
-    
-    const userAuth = servicioInicioSesion.getAuthUser();
-    
+  function controladorListarClientes($stateParams, $state, servicioUsuarios, servicioLogin) {
+
+    const userAuth = servicioLogin.getAuthUser();
+
     let vm = this;
 
-    let clientesRol = 5;
+    vm.listaDeUsuarios = servicioUsuarios.obtenerListaFiltrada();
 
-    vm.listaDeUsuarios = servicioUsuarios.obtenerlistadeFiltrada(clientesRol);
-   
   }
 })();

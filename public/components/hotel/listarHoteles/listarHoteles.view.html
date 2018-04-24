@@ -1,0 +1,83 @@
+<main class="hero" id="listarHoteles">
+  <div class="container">
+    <section class="row">
+      <div class="col-md-12">
+        <h1 class="text-center my-5 pt-2">Lista de hoteles</h1>
+      </div>
+    </section>
+    <section class="row justify-content-center">
+      <div class="col-md-12">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">código</th>
+              <th scope="col">Provincia</th>
+              <th scope="col">Cantón</th>
+              <th scope="col">distrito</th>
+              <th scope="col">fotoHotel</th>
+              <th scope="col">valoracion</th>
+              <th scope="col">Estado</th>
+              <th scope="col">Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="Hotel in vm.listaHoteles">
+              <th scope="row">{{$index+1}}</th>
+              <td>{{Hotel.idHotel}}</td>
+              <td>{{Hotel.provincia}}</td>
+              <td>{{Hotel.canton}}</td>
+              <td>{{Hotel.distrito}}</td>
+              <td>{{Hotel.fotoHotel}}</td>
+              <td>{{Hotel.valoracion}}</td>
+              <td>{{Hotel.estadohotel}}</td>
+              <td>
+                <button type="click" class="btn" ng-click="vm.consultar(listarHoteles.idHotel)">
+                  Consultar Hotel
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="row justify-content-center">
+      <div class="col-md-12">
+        <h2 class="text-center">Hoteles desactivados</h2>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">código</th>
+              <th scope="col">Provincia</th>
+              <th scope="col">Cantón</th>
+              <th scope="col">distrito</th>
+              <th scope="col">fotoHotel</th>
+              <th scope="col">valoracion</th>
+              <th scope="col">Estado</th>
+              <th scope="col">Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="Hotel in vm.listaHotelesDes">
+              <th scope="row">{{$index+1}}</th>
+              <td>{{Hotel.idHotel}}</td>
+              <td>{{Hotel.provincia}}</td>
+              <td>{{Hotel.canton}}</td>
+              <td>{{Hotel.distrito}}</td>
+              <td>{{Hotel.fotoHotel}}</td>
+              <td>{{Hotel.valoracion}}</td>
+              <td>{{Hotel.estadohotel}}</td>
+              <td>
+                <button type="click" class="btn" ng-click="vm.cambiarEstado()">
+                  Consultar Hotel
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </div>
+</main>
