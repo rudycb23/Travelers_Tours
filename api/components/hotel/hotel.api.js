@@ -3,6 +3,7 @@ const hotelModel = require('./hotel.model');
 module.exports.registrar = (req, res) => {
   let newHotel = new hotelModel({
     idHotel                : req.body.idHotel,
+    nombreHotel            : req.body.nombreHotel,
     provincia              : req.body.provincia,
     canton                 : req.body.canton,
     distrito               : req.body.distrito,

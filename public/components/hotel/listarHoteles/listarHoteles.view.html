@@ -11,29 +11,34 @@
           <thead>
             <tr>
               <th scope="col">#</th>
-              <th scope="col">código</th>
+         
+              <th scope="col">Nombre</th>
               <th scope="col">Provincia</th>
               <th scope="col">Cantón</th>
               <th scope="col">distrito</th>
-              <th scope="col">fotoHotel</th>
               <th scope="col">valoracion</th>
-              <th scope="col">Estado</th>
-              <th scope="col">Acciones</th>
+              <th scope="col">fotoHotel</th>
+              <th scope="col">Información</th>
+              <th scope="col" ng-if="vm.rol==1">Acción</th>
             </tr>
           </thead>
           <tbody>
             <tr ng-repeat="Hotel in vm.listaHoteles">
               <th scope="row">{{$index+1}}</th>
-              <td>{{Hotel.idHotel}}</td>
+              <td>{{Hotel.nombreHotel}}</td>
               <td>{{Hotel.provincia}}</td>
               <td>{{Hotel.canton}}</td>
               <td>{{Hotel.distrito}}</td>
-              <td>{{Hotel.fotoHotel}}</td>
               <td>{{Hotel.valoracion}}</td>
-              <td>{{Hotel.estadohotel}}</td>
+              <td>{{Hotel.fotoHotel}}</td>
               <td>
-                <button type="click" class="btn" ng-click="vm.consultar(listarHoteles.idHotel)">
+                <button type="click" class="btn" ng-click="vm.consultar(Hotel)">
                   Consultar Hotel
+                </button>
+              </td>
+              <td ng-if="vm.rol==1">
+                <button type="click" class="btn" ng-click="vm.desactivarHotel(Hotel)">
+                  Desactivar
                 </button>
               </td>
             </tr>
@@ -42,19 +47,19 @@
       </div>
     </section>
 
-    <section class="row justify-content-center">
+    <section class="row justify-content-center" ng-if="vm.rol==1">
       <div class="col-md-12">
         <h2 class="text-center">Hoteles desactivados</h2>
         <table class="table table-striped">
           <thead>
             <tr>
               <th scope="col">#</th>
-              <th scope="col">código</th>
+              <th scope="col">Nombre</th>
               <th scope="col">Provincia</th>
               <th scope="col">Cantón</th>
               <th scope="col">distrito</th>
-              <th scope="col">fotoHotel</th>
               <th scope="col">valoracion</th>
+              <th scope="col">fotoHotel</th>
               <th scope="col">Estado</th>
               <th scope="col">Acciones</th>
             </tr>
@@ -66,12 +71,12 @@
               <td>{{Hotel.provincia}}</td>
               <td>{{Hotel.canton}}</td>
               <td>{{Hotel.distrito}}</td>
-              <td>{{Hotel.fotoHotel}}</td>
               <td>{{Hotel.valoracion}}</td>
+              <td>{{Hotel.fotoHotel}}</td>
               <td>{{Hotel.estadohotel}}</td>
               <td>
-                <button type="click" class="btn" ng-click="vm.cambiarEstado()">
-                  Consultar Hotel
+                <button type="click" class="btn" ng-click="vm.activarHotel(Hotel)">
+                  Activar
                 </button>
               </td>
             </tr>

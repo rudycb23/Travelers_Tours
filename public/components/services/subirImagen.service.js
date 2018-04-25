@@ -11,9 +11,9 @@
         const cloudObj = {
             url: 'https://api.cloudinary.com/v1_1/dmocxplcb/image/upload',
             data: {
-                upload_preset: 'travelerstours',
+                upload_preset: 'correos_cr',
                 tags: 'Any',
-                context: 'photo=test'
+                context: 'foto=test'
             }
         };
 

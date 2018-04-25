@@ -64,7 +64,7 @@
         dataType: 'json',
         async: false,
         data: {
-          'cadula': data.cedula,
+          'cedula': data.cedula,
           'primerNombre': data.primerNombre,
           'segundoNombre': data.segundoNombre,
           'primerApellido': data.primerApellido,
@@ -101,7 +101,7 @@
         async: false,
         data: {
 
-          'cadula': data.cedula,
+          'cedula': data.cedula,
           'primerNombre': data.primerNombre,
           'segundoNombre': data.segundoNombre,
           'primerApellido': data.primerApellido,
@@ -193,6 +193,7 @@
         async: false,
         data: {
           'idHotel': nuevoHotel.idHotel,
+          'nombreHotel': nuevoHotel.nombreHotel,
           'provincia': nuevoHotel.provincia,
           'canton': nuevoHotel.canton,
           'distrito': nuevoHotel.distrito,
@@ -231,6 +232,7 @@
         async: false,
         data: {
           'idHotel': hotelActualizado.idHotel,
+          'nombreHotel': hotelActualizado.nombreHotel,
           'provincia': hotelActualizado.provincia,
           'canton': hotelActualizado.canton,
           'distrito': hotelActualizado.distrito,
@@ -241,7 +243,7 @@
           'correoReservaciones': hotelActualizado.correoReservaciones,
           'fotoHotel': hotelActualizado.fotoHotel,
           'valoracion': hotelActualizado.valoracion,
-          'estadohotel':nuevoHotel.estadohotel
+          'estadohotel':hotelActualizado.estadohotel
         }
       });
 

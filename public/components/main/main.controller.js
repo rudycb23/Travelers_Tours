@@ -19,11 +19,11 @@
 
 
     vm.cerrarSesion = () => {
-      swal("¿Desea cerrar la sesión?", {
+      swal("¿Desea salir de su sesión?", {
         buttons: {
           cancel: "Cancelar",
           cerrarSesion: {
-            text: "Cerrar sesión",
+            text: "Salir!",
             value: "cerrarSesion",
           },
         },

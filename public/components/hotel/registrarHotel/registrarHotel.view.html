@@ -1,1 +1,160 @@
-<h1>soy un hotel</h1>
+<navegacion-Principal></navegacion-Principal>
+
+<main class="hero" id="registroHotel">
+    <section id="registrarCliente">
+        <div class="row mt-5">
+            <div class="col-md-12 mb-5">
+                <h1 id="tituloPrincipal" class="text-center mt-3">Registro para nuevo hotel</h1>
+                <p class="text-muted text-center texto-descripcion">Ingrese los datos solicitados para ingresar un nuevo hotel</p>
+            </div>
+        </div>
+
+        <div class="container justify-content-center">
+            <form name="frmRegistroHotel" ng-submit="vm.registrarHotel(vm.hotelNuevo)" novalidate autocomplete="off">
+
+                <div class="row">
+                    <div class="form-group col-md-4">
+                        <label for="txtidHotel">código del hotel:</label>
+                        <input type="number" class="form-control" id="txtidHotel" name="campoidHotel" ng-model="vm.hotelNuevo.idHotel" required>
+                        <div ng-messages="frmRegistroHotel.campoidHotel.$error" role="alert">
+                            <div ng-message="required">
+                                <small class="form-text text-danger">Este campo es requerido</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-4">
+                        <label for="txtNombreHotel">Nombre del hotel:</label>
+                        <input type="text" class="form-control" id="txtNombreHotel" name="campoNombre" pattern="[ñáéíóúA-Za-z ]+" ng-model="vm.hotelNuevo.nombreHotel"
+                            required>
+                        <div ng-messages="frmRegistroHotel.campoNombre.$error" role="alert">
+                            <div ng-message="required">
+                                <small class="form-text text-danger">Este campo es requerido</small>
+                            </div>
+                            <div ng-message="pattern">
+                                <small class="form-text text-muted">Formato incorrecto</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-4">
+                        <label for="iptFoto">Fotografía:</label>
+                        <input type="file" class="form-control-file" id="iptFoto" name="campoFoto" files-input ng-model="vm.hotelNuevo.foto" required>
+                        <div ng-messages="frmRegistroHotel.campoFoto.$error" role="alert">
+                            <div ng-message="required">
+                                <small class="form-text text-danger">Este campo es requerido</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-4">
+                        <label for="sltProvincia">Provincia:</label>
+                        <select id="sltProvincia" class="custom-select" name="campoProvincias" ng-model="vm.hotelNuevo.provincia" ng-change="vm.rellenarCantones(vm.hotelNuevo.provincia._id)"
+                            ng-options="provincia as provincia.name for provincia in vm.provincias track by provincia._id" required>
+                            <option value="">--Seleccione una provincia--</option>
+                        </select>
+                        <div ng-messages="frmRegistroHotel.campoProvincias.$error" role="alert">
+                            <div ng-message="required">
+                                <small class="form-text text-danger">Este campo es requerido</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-4">
+                        <label for="sltCanton">Cantón:</label>
+                        <select id="sltCanton" class="custom-select" name="campoCanton" ng-change="vm.rellenarDistrito(vm.hotelNuevo.canton._id)"
+                            ng-options="canton as canton.name for canton in vm.cantones track by canton._id" ng-model="vm.hotelNuevo.canton"
+                            ng-disabled="!vm.hotelNuevo.provincia" required>
+                            <option value="">--Seleccione un cantón--</option>
+                        </select>
+                        <div ng-messages="frmRegistroHotel.campoCanton.$error" role="alert">
+                            <div ng-message="required">
+                                <small class="form-text text-danger">Este campo es requerido</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-4">
+                        <label for="sltDistrito">Distrito:</label>
+                        <select id="sltDistrito" class="custom-select" name="campoDistritos" ng-options="distrito as distrito.name for distrito in vm.distritos track by distrito._id"
+                            ng-model="vm.hotelNuevo.distrito" ng-disabled="!vm.hotelNuevo.canton" required>
+                            <option value="">--Seleccione un distrito--</option>
+                        </select>
+                        <div ng-messages="frmRegistroHotel.campoDistritos.$error" role="alert">
+                            <div ng-message="required">
+                                <small class="form-text text-danger">Este campo es requerido</small>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group col-md-5">
+                        <label for="txtDireccion">Dirección:</label>
+                        <input type="text" class="form-control" id="txtDireccion" pattern="[ñáéíóúA-Za-z-1234567890]+" name="campoDireccion" ng-model="vm.hotelNuevo.direccion"
+                            required>
+                        <div ng-messages="frmRegistroHotel.campoDireccion.$error" role="alert">
+                            <div ng-message="required">
+                                <small class="form-text text-danger">Este campo es requerido</small>
+                            </div>
+                            <div ng-message="pattern">
+                                <small class="form-text text-muted">Formato incorrecto</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-5">
+                        <label for="txtTelefonoServicio">Télefono servicio al cliente:</label>
+                        <input type="number" class="form-control" id="txtTelefonoServicio" name="campoTelefonoServicio" ng-model="vm.hotelNuevo.telefonoServicio"
+                            required>
+                        <div ng-messages="frmRegistroHotel.campoTelefonoServicio.$error" role="alert">
+                            <div ng-message="required">
+                                <small class="form-text text-danger">Este campo es requerido</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-7">
+                        <label for="txtEmailServicio">Correo electrónico servicio al cliente:</label>
+                        <input type="email" class="form-control" id="txtEmailServicio" name="campoCorreoServicio" ng-model="vm.hotelNuevo.correoServicio"
+                            required>
+                        <div ng-messages="frmRegistroHotel.campoCorreoServicio.$error" role="alert">
+                            <div ng-message="required">
+                                <small class="form-text text-danger">Este campo es requerido</small>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group col-md-5">
+                        <label for="txtTelefonoReservaciones">Télefono para reservaciones:</label>
+                        <input type="number" class="form-control" id="txtTelefonoReservaciones" name="campotelefonoReservaciones" ng-model="vm.hotelNuevo.telefonoReservaciones"
+                            required>
+                        <div ng-messages="frmRegistroHotel.campotelefonoReservaciones.$error" role="alert">
+                            <div ng-message="required">
+                                <small class="form-text text-danger">Este campo es requerido</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-7">
+                        <label for="txtEmailReservaciones">Correo electrónico para reservaciones:</label>
+                        <input type="email" class="form-control" id="txtEmailReservaciones" name="correoReservaciones" ng-model="vm.hotelNuevo.correoReservaciones"
+                            required>
+                        <div ng-messages="frmRegistroHotel.correoReservaciones.$error" role="alert">
+                            <div ng-message="required">
+                                <small class="form-text text-danger">Este campo es requerido</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mt-5">
+                    <div class="mx-auto">
+                        <button type="submit" class="btn">Registrar hotel</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+</main>

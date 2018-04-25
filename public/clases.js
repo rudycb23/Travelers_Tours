@@ -29,10 +29,10 @@ class Usuario {
 }
 
 class Hotel {
-  constructor(pidHotel, pprovincia, pcanton, pdistrito, pdireccion, ptelefonoServicio, pcorreoServicio, ptelefonoReservaciones, pcorreoReservaciones, pfotoHotel, pvaloracion, pestadohotel) {
-
+  constructor(pidHotel, pnombreHotel, pprovincia, pcanton, pdistrito, pdireccion, ptelefonoServicio, pcorreoServicio, ptelefonoReservaciones, pcorreoReservaciones, pfotoHotel, pvaloracion, pestadohotel) {
 
     this.idHotel                = pidHotel;
+    this.nombreHotel            = pnombreHotel;
     this.provincia              = pprovincia;
     this.canton                 = pcanton;
     this.distrito               = pdistrito;

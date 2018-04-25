@@ -2,6 +2,7 @@ let mongoose = require('mongoose');
 
 let UserSchema = new mongoose.Schema({
     idHotel                : { type: String, require: true },
+    nombreHotel            : { type: String, require: true },
     provincia              : { type: String, require: true },
     canton                 : { type: String, require: true },
     distrito               : { type: String, require: true },

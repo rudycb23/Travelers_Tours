@@ -88,24 +88,25 @@
 
       .state('main.registrarNuevoCliente', {
         url: '/registrarNuevoCliente',
-        templateUrl: './components/usuarios/perfil/perfil.view.html',
+        templateUrl: './components/usuarios/cliente/AdminRegistraCliente/registrarCliente.view.html',
         data: {
-          pageTitle: 'Mi perfil'
+          pageTitle: 'Registrar cliente'
         },
         resolve: {
           load: ['$ocLazyLoad', ($ocLazyLoad) => {
-            return $ocLazyLoad.load('./components/usuarios/perfil/perfil.controller.js')
+            return $ocLazyLoad.load('./components/usuarios/cliente/AdminRegistraCliente/registrarCliente.controller.js')
           }]
         },
-        controller: 'perfilController',
+        controller: 'controladorRegistrarCliente',
         controllerAs: 'vm'
       })
 
+      
       .state('main.listarClientes', {
         url: '/listarClientes',
         templateUrl: './components/usuarios/cliente/listarClientes/listarClientes.view.html',
         data: {
-          pageTitle: 'Mi perfil'
+          pageTitle: 'Lista de clientes'
         },
         resolve: {
           load: ['$ocLazyLoad', ($ocLazyLoad) => {
@@ -120,21 +121,22 @@
         url: '/registrarHotel',
         templateUrl: './components/hotel/registrarHotel/registrarHotel.view.html',
         data: {
-          pageTitle: 'Mi perfil'
+          pageTitle: 'Registro hotel'
         },
         resolve: {
           load: ['$ocLazyLoad', ($ocLazyLoad) => {
             return $ocLazyLoad.load('./components/hotel/registrarHotel/registrarHotel.controller.js')
           }]
         },
-        controller: 'perfilController',
+        controller: 'controladorRegistroHotel',
         controllerAs: 'vm'
       })
+
       .state('main.listarHoteles', {
         url: '/listarHoteles',
         templateUrl: './components/hotel/listarHoteles/listarHoteles.view.html',
         data: {
-          pageTitle: 'Mi perfil'
+          pageTitle: 'Lista de hoteles'
         },
         resolve: {
           load: ['$ocLazyLoad', ($ocLazyLoad) => {
@@ -142,6 +144,21 @@
           }]
         },
         controller: 'controladorListaHoteles',
+        controllerAs: 'vm'
+      })
+
+      .state('main.modificarHotel', {
+        url: '/modificarHotel',
+        templateUrl: './components/hotel/modificarHotel/modificarHotel.view.html',
+        data: {
+          pageTitle: 'Consultar hotel'
+        },
+        resolve: {
+          load: ['$ocLazyLoad', ($ocLazyLoad) => {
+            return $ocLazyLoad.load('./components/hotel/modificarHotel/modificarHotel.controller.js')
+          }]
+        },
+        controller: 'controladorModificarHotel',
         controllerAs: 'vm'
       })
 

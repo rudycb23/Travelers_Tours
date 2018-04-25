@@ -12,9 +12,9 @@
             agregarHotel: _agregarHotel,
             retornarHotel: _retornarHotel,
             editarHotel: _editarHotel,
-            cambiarEstado: _cambiarEstado,
             retornarHotelDesact: _retornarHotelDesact,
-            retornarHotelAct: _retornarHotelAct
+            retornarHotelAct: _retornarHotelAct,
+            consultarDatosSession: _consultarDatosSession
 
         }
 
@@ -35,7 +35,7 @@
                     }
                 }
                 hotelAct.forEach(objTemp => {
-                    let objhotelAct = new Hotel(objTemp.idHotel, objTemp.provincia, objTemp.canton, objTemp.distrito, objTemp.direccion, objTemp.telefonoServicio, objTemp.correoServicio, objTemp.telefonoReservaciones, objTemp.correoReservaciones, objTemp.fotoHotel, objTemp.valoracion, objTemp.estadohotel);
+                    let objhotelAct = new Hotel(objTemp.idHotel, objTemp.nombreHotel, objTemp.provincia, objTemp.canton, objTemp.distrito, objTemp.direccion, objTemp.telefonoServicio, objTemp.correoServicio, objTemp.telefonoReservaciones, objTemp.correoReservaciones, objTemp.fotoHotel, objTemp.valoracion, objTemp.estadohotel);
 
                     hotelActLS.push(objhotelAct);
                 });
@@ -57,23 +57,12 @@
                 }
 
                 hotelDesact.forEach(objTemp => {
-                    let objhotelDesact = new Hotel(objTemp.idHotel, objTemp.provincia, objTemp.canton, objTemp.distrito, objTemp.direccion, objTemp.telefonoServicio, objTemp.correoServicio, objTemp.telefonoReservaciones, objTemp.correoReservaciones, objTemp.fotoHotel, objTemp.valoracion, objTemp.estadohotel);
+                    let objhotelDesact = new Hotel(objTemp.idHotel, objTemp.nombreHotel, objTemp.provincia, objTemp.canton, objTemp.distrito, objTemp.direccion, objTemp.telefonoServicio, objTemp.correoServicio, objTemp.telefonoReservaciones, objTemp.correoReservaciones, objTemp.fotoHotel, objTemp.valoracion, objTemp.estadohotel);
 
                     hotelDesactLS.push(objhotelDesact);
                 });
                 return hotelDesactLS
             }
-        }
-
-        function _cambiarEstado(pobjhotel) {
-            let hotelLS = _retornarhotel();
-
-            if (pobjhotel.estadohotel) {
-                pobjhotel.estadohotel = false;
-            } else {
-                pobjhotel.estadohotel = true;
-            }
-            actualizarLista(pobjhotel);
         }
 
         function _agregarHotel(pHotelNuevo) {
@@ -88,8 +77,7 @@
             }
 
             if (validarCodigo == true) {
-                // listaCarrier.push(pCarrierNuevo);
-                // lgetCarrierData(listaCarrier);
+  
                 dataStorageFactory.setHotelData(pHotelNuevo);
             }
             return validarCodigo;
@@ -106,7 +94,7 @@
             } else {
                 listaHotelLocal.forEach(obj => {
 
-                    let objHotelNuevo = new Hotel(obj.idHotel, obj.provincia, obj.canton, obj.distrito, obj.direccion, obj.telefonoServicio, obj.correoServicio, obj.telefonoReservaciones, obj.correoReservaciones, obj.fotoHotel, obj.valoracion, obj.estadohotel);
+                    let objHotelNuevo = new Hotel(obj.idHotel, obj.nombreHotel, obj.provincia, obj.canton, obj.distrito, obj.direccion, obj.telefonoServicio, obj.correoServicio, obj.telefonoReservaciones, obj.correoReservaciones, obj.fotoHotel, obj.valoracion, obj.estadohotel);
 
                     hotelTemp.push(objHotelNuevo);
                 });
@@ -124,6 +112,24 @@
         function actualizarLista(photelLS) {
             dataStorageFactory.updateHotelData(photelLS);
         }
+
+
+        function _consultarDatosSession() {
+            let datosHotel = dataStorageFactory.getData(),
+              hotelActivo;
+      
+            if (!datosHotel) {
+                hotelActivo = undefined;
+            } else {
+                hotelActivo = _buscarHotel(datosHotel);
+            }
+      
+            return hotelActivo;
+          };
+      
+          function _removerDatosSession() {
+            dataStorageFactory.removeData();
+          };
 
     }// fin servicio
 })();
