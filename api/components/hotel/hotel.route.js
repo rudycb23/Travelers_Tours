@@ -22,5 +22,4 @@ router.route('/update_hotel')
   .put((req, res) => {
     hotel.actualizar(req,res);
 });
-
 module.exports = router;

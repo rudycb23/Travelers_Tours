@@ -60,5 +60,8 @@
         });
       }
     }// fin registrar nuevo cliente
+    vm.regresar = () => {
+      $state.go('main.inicio');
+    }
   }// fin controlador
 })();

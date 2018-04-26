@@ -29,7 +29,7 @@ class Usuario {
 }
 
 class Hotel {
-  constructor(pidHotel, pnombreHotel, pprovincia, pcanton, pdistrito, pdireccion, ptelefonoServicio, pcorreoServicio, ptelefonoReservaciones, pcorreoReservaciones, pfotoHotel, pvaloracion, pestadohotel) {
+  constructor(pidHotel, pnombreHotel, pprovincia, pcanton, pdistrito, pdireccion, ptelefonoServicio, pcorreoServicio, ptelefonoReservaciones, pcorreoReservaciones, pfotoHotel, pvaloracion, pestadohotel,platitud, plongitud, pmapa, pcantRates,ptotalValor) {
 
     this.idHotel                = pidHotel;
     this.nombreHotel            = pnombreHotel;
@@ -44,11 +44,24 @@ class Hotel {
     this.fotoHotel              = pfotoHotel;
     this.valoracion             = pvaloracion;
     this.estadohotel            = pestadohotel;
+    this.latitud                = platitud;
+    this.longitud               = plongitud;
+    this.mapa                   = pmapa;
+    this.cantRates              = pcantRates;
+    this.totalValor             = ptotalValor;
   }
   getIdHotel() {
     return this.idHotel;
   }
   getValoracion() {
     return this.valoracion;
+  }
+
+  getLatitud(){
+    return this.latitud;
+  }
+
+  getLongitud(){
+    return this.longitud;
   }
 } // hotel

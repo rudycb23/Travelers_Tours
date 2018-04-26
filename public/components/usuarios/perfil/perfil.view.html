@@ -18,7 +18,7 @@
           <p>Fecha de nacimiento: {{vm.usuarioActivo.fecha | date:'dd-MM-yyyy'}}</p>
           <p>Sexo: {{vm.usuarioActivo.genero}}</p>
           <button type="button" class="btn btn-danger" ng-click="vm.editarUsuario()">Editar información</button>
-          <button type="button" class="btn btn-danger" ng-if="vm.rol==2">Desactivar cuenta</button>
+          <button type="button" class="btn btn-secondary" ng-click="vm.regresar()">Regresar</button>
         </div>
       </div>
     </section>

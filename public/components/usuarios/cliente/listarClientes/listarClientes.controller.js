@@ -13,6 +13,8 @@
     let vm = this;
 
     vm.listaDeUsuarios = servicioUsuarios.obtenerListaFiltrada();
-
+    vm.regresar = () => {
+      $state.go('main.inicio');
+    }
   }
 })();

@@ -14,7 +14,12 @@ module.exports.registrar = (req, res) => {
     correoReservaciones    : req.body.correoReservaciones,
     fotoHotel              : req.body.fotoHotel,
     valoracion             : req.body.valoracion,
-    estadohotel            : req.body.estadohotel
+    estadohotel            : req.body.estadohotel,
+    latitud                : req.body.latitud,
+    longitud               : req.body.longitud,
+    mapa                   : req.body.mapa,
+    cantRates              : req.body.cantRates,
+    totalValor             : req.body.totalValor
   });
 
   newHotel.save((err) => {

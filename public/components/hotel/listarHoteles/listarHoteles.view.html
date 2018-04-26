@@ -5,6 +5,7 @@
         <h1 class="text-center my-5 pt-2">Lista de hoteles</h1>
       </div>
     </section>
+    <button type="button" class="btn btn-secondary" ng-click="vm.regresar()">Regresar</button>
     <section class="row justify-content-center">
       <div class="col-md-12">
         <table class="table table-striped">
@@ -15,9 +16,11 @@
               <th scope="col">Nombre</th>
               <th scope="col">Provincia</th>
               <th scope="col">Cantón</th>
-              <th scope="col">distrito</th>
-              <th scope="col">valoracion</th>
-              <th scope="col">fotoHotel</th>
+              <th scope="col">Distrito</th>
+              <th scope="col">Valoracion</th>
+              <th scope="col">Foto</th>
+              <th class="col-md-5" scope="col">Mapa</th>
+              
               <th scope="col">Información</th>
               <th scope="col" ng-if="vm.rol==1">Acción</th>
             </tr>
@@ -32,8 +35,13 @@
               <td>{{Hotel.valoracion}}</td>
               <td>{{Hotel.fotoHotel}}</td>
               <td>
-                <button type="click" class="btn" ng-click="vm.consultar(Hotel)">
-                  Consultar Hotel
+                <ng-map center="{{vm.mapa}}" zoom="14">
+                    <marker {{Hotel.mapa}}="{{vm.mapa}}"></marker>
+                </ng-map></td>
+        
+              <td>
+                <button type="click" class="btn" ng-click="vm.consultar(Hotel.idHotel)">
+                  Consultar
                 </button>
               </td>
               <td ng-if="vm.rol==1">

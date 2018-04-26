@@ -4,19 +4,26 @@
   .module('travelersTours')
   .controller('perfilController', perfilController);
 
-  perfilController.$inject = ['servicioUsuarios', 'servicioLogin']
-
-  function perfilController(servicioUsuarios, servicioLogin){
+  perfilController.$inject = ['$state', 'servicioUsuarios', 'servicioLogin'];
+  
+  function perfilController($state, servicioUsuarios, servicioLogin){
     const vm = this;
+
+
+    vm.regresar = () => {
+      $state.go('main.inicio');
+    }
 
     const userAuth = servicioLogin.getAuthUser();
 
     if(userAuth == undefined){
-      $state.go('main');
+      $state.go('main.inicio');
     }
 
     vm.usuarioActivo = userAuth;
     vm.rol = userAuth.getRol();
-
+    
   };
+
+  
 })();

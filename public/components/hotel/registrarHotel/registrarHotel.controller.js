@@ -4,9 +4,9 @@
         .module('travelersTours')
         .controller('controladorRegistroHotel', controladorRegistroHotel);
 
-    controladorRegistroHotel.$inject = ['$http', '$stateParams', '$state', 'servicioHoteles', 'imageUploadService', 'Upload'];
+    controladorRegistroHotel.$inject = ['$http', '$stateParams', '$state', 'servicioHoteles', 'imageUploadService', 'Upload', 'NgMap'];
 
-    function controladorRegistroHotel($http, $stateParams, $state, servicioHoteles, imageUploadService, Upload) {
+    function controladorRegistroHotel($http, $stateParams, $state, servicioHoteles, imageUploadService, Upload, NgMap) {
 
         const vm = this;
 
@@ -51,16 +51,27 @@
             });
         }
 
+
+        vm.onDragEnd = ($event) => {
+            let postion = [$event.latLng.lat(), $event.latLng.lng()];
+            // console.log(coords);
+
+            vm.coords = postion;
+        }
+
+        /**
+         * llama las  ccoordenadas capturadas en la funcion previa y las asigna a un mapa distinto
+         */
+
+
+
         vm.hotelNuevo = {};
 
         vm.cloudObj = imageUploadService.getConfiguration();
 
         vm.preRegistrarHotel = (photelNuevo) => {
 
-
-
-
-            vm.cloudObj.data.file = photelNuevo.foto[0];
+            vm.cloudObj.data.file = photelNuevo.photo[0];
             Upload.upload(vm.cloudObj).success((data) => {
                 vm.registrarHotel(photelNuevo, data.url);
             });
@@ -68,13 +79,22 @@
 
         vm.registrarHotel = (photelNuevo, urlImagen) => {
 
-
-            let estadohotel = true;
             let valoracion = 0;
+            let estadohotel = true;
+            let latitud = vm.coords[0],
+            longitud = vm.coords[1];
+            let mapa = [];
+                    mapa.push(latitud);
+                    mapa.push(longitud);
+            
+            let ubicacion = vm.coords;
+            let cantRates = 0;
+            let totalValor = 0;
 
-            let objNuevoHotel = new Hotel(photelNuevo.idHotel, photelNuevo.nombreHotel, photelNuevo.provincia.name, photelNuevo.canton.name, photelNuevo.distrito.name, photelNuevo.direccion, photelNuevo.telefonoServicio, photelNuevo.correoServicio, photelNuevo.telefonoReservaciones, photelNuevo.correoReservaciones, urlImagen, estadohotel, valoracion);
-
-            console.log(objNuevoHotel);
+            let objNuevoHotel = new Hotel(photelNuevo.idHotel, photelNuevo.nombreHotel, photelNuevo.provincia.name,
+                photelNuevo.canton.name, photelNuevo.distrito.name, photelNuevo.direccion, photelNuevo.telefonoServicio,
+                photelNuevo.correoServicio, photelNuevo.telefonoReservaciones, photelNuevo.correoReservaciones, urlImagen,
+                valoracion, estadohotel, latitud,longitud,mapa, cantRates, totalValor);
 
             let registro = servicioHoteles.agregarHotel(objNuevoHotel);
 
@@ -96,5 +116,8 @@
                 });
             }
         }// fin registrar nuevo hotel
+        vm.regresar = () => {
+            $state.go('main.inicio');
+        }
     }// fin controlador
 })();

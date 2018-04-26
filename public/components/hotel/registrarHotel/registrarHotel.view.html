@@ -39,7 +39,7 @@
 
                     <div class="form-group col-md-4">
                         <label for="iptFoto">Fotografía:</label>
-                        <input type="file" class="form-control-file" id="iptFoto" name="campoFoto" files-input ng-model="vm.hotelNuevo.foto" required>
+                        <input type="file" class="form-control-file" id="iptFoto" name="campoFoto" files-input ng-model="vm.hotelNuevo.photo" required>
                         <div ng-messages="frmRegistroHotel.campoFoto.$error" role="alert">
                             <div ng-message="required">
                                 <small class="form-text text-danger">Este campo es requerido</small>
@@ -147,12 +147,24 @@
                             </div>
                         </div>
                     </div>
+
+
+                    <div class="form-group col-md-6">
+                        <label>Donde está su hotel?</label>
+                        <small class="form-text text-muted">Ejemplo: Coco</small>
+                        <input places-auto-complete size=60 component-restrictions="{country:'cr'}" class="form-control my-3" type="text" ng-model="vm.direccionmapa">
+
+                        <ng-map center="{{vm.direccionmapa}}" zoom="14">
+                            <marker position="{{vm.direccionmapa}}'" draggable="true" on-dragend="vm.onDragEnd($event)" ng-model="vm.coords"></marker>
+                        </ng-map>
+                    </div>
                 </div>
 
                 <div class="row mt-5">
                     <div class="mx-auto">
                         <button type="submit" class="btn">Registrar hotel</button>
                     </div>
+                    <button type="button" class="btn btn-secondary" ng-click="vm.regresar()">Regresar</button>
                 </div>
             </form>
         </div>

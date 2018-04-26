@@ -204,7 +204,12 @@
           'correoReservaciones': nuevoHotel.correoReservaciones,
           'fotoHotel': nuevoHotel.fotoHotel,
           'valoracion': nuevoHotel.valoracion,
-          'estadohotel':nuevoHotel.estadohotel
+          'estadohotel':nuevoHotel.estadohotel,
+          'latitud': nuevoHotel.latitud,
+          'longitud': nuevoHotel.longitud,
+          'mapa': nuevoHotel.mapa,
+          'cantRates' : nuevoHotel.cantRates,
+          'totalValor' :nuevoHotel.totalValor
         }
       });
 
@@ -243,7 +248,12 @@
           'correoReservaciones': hotelActualizado.correoReservaciones,
           'fotoHotel': hotelActualizado.fotoHotel,
           'valoracion': hotelActualizado.valoracion,
-          'estadohotel':hotelActualizado.estadohotel
+          'estadohotel':hotelActualizado.estadohotel,
+          'latitud': hotelActualizado.latitud,
+          'longitud': hotelActualizado.longitud,
+          'mapa': hotelActualizado.mapa,
+          'cantRates': hotelActualizado.cantRates,
+          'totalValor' :hotelActualizado.totalValor
         }
       });
 
