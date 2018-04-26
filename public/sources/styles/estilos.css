@@ -27,7 +27,7 @@
     text-align: center;
     margin-top: 10%;
     padding: 3%;
-    background-color: rgb(255, 253, 225);
+    background-color: rgb(255, 255, 255);
 }
 
 #elemento-underlanding {
@@ -53,4 +53,25 @@
 
 #footer-lista li {
     float: left;
+}
+
+#mainPrincipal{
+    height: 100%;
+    background-image: url('../../sources/img/main2.jpg');
+    background-size: cover;
+    background-repeat: repeat;
+    
+}
+
+#mainPrincipal{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 18px;
+    font-weight: 800;
+}
+
+#listarHoteles{
+    text-align: center;
+}
+#mainPrincipal table{
+background-color: white;
 }

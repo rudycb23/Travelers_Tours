@@ -32,7 +32,11 @@
               <td>{{Hotel.provincia}}</td>
               <td>{{Hotel.canton}}</td>
               <td>{{Hotel.distrito}}</td>
-              <td>{{Hotel.valoracion}}</td>
+              <td><div id="trofeoOro" ng-if="Hotel.valoracion==5"> <img src="../../../sources/img/trofeoOro.png" alt="" srcset=""></div>
+                  <div id="trofeoPlata" ng-if="Hotel.valoracion==4"> <img src="../../../sources/img/trofeoSilver.png" alt="" srcset=""></div>
+                  <div id="trofeoBronce" ng-if="Hotel.valoracion==3"> <img src="../../../sources/img/trofeoBronce.png" alt="" srcset=""></div>
+                  <div id="trofeoAzul" ng-if="Hotel.valoracion==2"> <img src="../../../sources/img/trofeoVerde.png" alt="" srcset=""></div>
+                  <div id="trofeoRojo" ng-if="Hotel.valoracion==1"> <img src="../../../sources/img/trofeoNegro.png" alt="" srcset=""></div></td>
               <td>{{Hotel.fotoHotel}}</td>
               <td>
                 <ng-map center="{{vm.mapa}}" zoom="14">
