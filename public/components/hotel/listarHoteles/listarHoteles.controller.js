@@ -19,6 +19,28 @@
 
         vm.listaHotelesDes = servicioHoteles.retornarHotelDesact();
 
+        vm.mapa = servicioHoteles.retornarMapa()
+
+
+        vm.ordenNombre = () => {
+            vm.listaHoteles = servicioHoteles.ordenarNombre();
+        }
+
+        let mayorMenor = true;
+
+        vm.ordenRate = () => {
+
+            vm.listaHoteles = servicioHoteles.ordenarRate(mayorMenor);
+            if (mayorMenor == false) {
+                mayorMenor = true;
+            } else {
+                if (mayorMenor == true) {
+                    mayorMenor = false;
+                }
+            }
+
+        }
+
 
         vm.desactivarHotel = (pHotel) => {
             let estadohotel = false;

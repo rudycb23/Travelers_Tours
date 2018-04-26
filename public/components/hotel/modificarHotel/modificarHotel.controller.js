@@ -21,6 +21,17 @@
     vm.rol = userAuth.getRol();
     vm.hotelMostrar = hotelActivo;
 
+  
+      let coords =[]; 
+      coords[0]=(hotelActivo.latitud);
+      coords[1]=(hotelActivo.longitud);
+
+      console.log(coords);
+
+      vm.position = coords;
+    
+
+
     vm.provincias = $http({
       method: 'GET',
       url: './sources/data/provincias.json'

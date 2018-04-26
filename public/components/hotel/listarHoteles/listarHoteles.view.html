@@ -1,5 +1,5 @@
 <main class="hero" id="listarHoteles">
-  <div class="container">
+  <div class="container fondoBLC">
     <section class="row">
       <div class="col-md-12">
         <h1 class="text-center my-5 pt-2">Lista de hoteles</h1>
@@ -8,18 +8,23 @@
     <button type="button" class="btn btn-secondary" ng-click="vm.regresar()">Regresar</button>
     <section class="row justify-content-center">
       <div class="col-md-12">
-        <table class="table table-striped">
+        <table class="table table-striped tablaHoteles">
           <thead>
             <tr>
               <th scope="col">#</th>
          
-              <th scope="col">Nombre</th>
+              <th scope="col"><button type="click" class="btn" ng-click="vm.ordenNombre()">
+                  Nombre
+                </button></th>
               <th scope="col">Provincia</th>
               <th scope="col">Cantón</th>
               <th scope="col">Distrito</th>
-              <th scope="col">Valoracion</th>
+              <th scope="col">
+                  <button type="click" class="btn" ng-click="vm.ordenRate()">
+                      Valoracion
+                    </button>
+                </th>
               <th scope="col">Foto</th>
-              <th class="col-md-5" scope="col">Mapa</th>
               
               <th scope="col">Información</th>
               <th scope="col" ng-if="vm.rol==1">Acción</th>
@@ -38,10 +43,8 @@
                   <div id="trofeoAzul" ng-if="Hotel.valoracion==2"> <img src="../../../sources/img/trofeoVerde.png" alt="" srcset=""></div>
                   <div id="trofeoRojo" ng-if="Hotel.valoracion==1"> <img src="../../../sources/img/trofeoNegro.png" alt="" srcset=""></div></td>
               <td>{{Hotel.fotoHotel}}</td>
-              <td>
-                <ng-map center="{{vm.mapa}}" zoom="14">
-                    <marker {{Hotel.mapa}}="{{vm.mapa}}"></marker>
-                </ng-map></td>
+              
+
         
               <td>
                 <button type="click" class="btn" ng-click="vm.consultar(Hotel.idHotel)">

@@ -1,5 +1,5 @@
 <main>
-    <section class="container">
+    <section class="container fondoBLC">
         <div class="row">
             <div class="col-md-12 py-5">
                 <h1 class="text-center">Informacion del hotel {{vm.hotelMostrar.nombreHotel}}</h1>
@@ -24,6 +24,9 @@
                             <p ng-if="vm.rol==1">Estado actual: {{vm.hotelMostrar.estadohotel}}</p>
                         </div>
                     </div>
+                    <ng-map center="{{vm.position}}" zoom="14">
+                        <marker position="{{vm.position}}"></marker>
+                    </ng-map>
                 </section>
 
                 <section class="ActualizarHotel" ng-if="vm.rol==1">
@@ -156,25 +159,25 @@
                             </select>
                         </div>
                         <div class="form-group col-md-2">
-                            <label for="sltServicio">calidad del servicio:</label>
+                            <label for="sltServicio">Atención al cliente:</label>
                             <select id="sltServicio" class="custom-select" ng-model="vm.hotelvalor.servicio" ng-options="servicio as servicio.name for servicio in vm.servicio track by servicio._id">
                                 <option value="">-Seleccione-</option>
                             </select>
                         </div>
                         <div class="form-group col-md-2">
-                            <label for="sltHabitaciones">habitaciones:</label>
+                            <label for="sltHabitaciones">Habitaciones:</label>
                             <select id="sltHabitaciones" class="custom-select" ng-model="vm.hotelvalor.habitaciones" ng-options="habitaciones as habitaciones.name for habitaciones in vm.habitaciones track by habitaciones._id">
                                 <option value="">-Seleccione-</option>
                             </select>
                         </div>
                         <div class="form-group col-md-2">
-                            <label for="sltInfraestructura">infraestructura:</label>
+                            <label for="sltInfraestructura">Infraestructura:</label>
                             <select id="sltInfraestructura" class="custom-select" ng-model="vm.hotelvalor.infraestructura" ng-options="infraestructura as infraestructura.name for infraestructura in vm.infraestructura track by infraestructura._id">
                                 <option value="">-Seleccione-</option>
                             </select>
                         </div>
                         <div class="form-group col-md-2">
-                            <label for="sltLimpieza">limpieza:</label>
+                            <label for="sltLimpieza">Limpieza:</label>
                             <select id="sltLimpieza" class="custom-select" ng-model="vm.hotelvalor.limpieza" ng-options="limpieza as limpieza.name for limpieza in vm.limpieza track by limpieza._id">
                                 <option value="">-Seleccione-</option>
                             </select>

@@ -19,8 +19,8 @@
             consultarDatosSession: _consultarDatosSession,
             removerDatosSession: _removerDatosSession,
             retornarMapa: _retornarMapa,
-            retornarAltitud: _retornarAltitud,
-            retornarLatitud: _retornarLatitud
+            ordenarNombre: _ordenarNombre,
+            ordenarRate: _ordenarRate
 
         }
 
@@ -106,7 +106,7 @@
 
                     let objHotelNuevo = new Hotel(obj.idHotel, obj.nombreHotel, obj.provincia, obj.canton, obj.distrito, obj.direccion,
                         obj.telefonoServicio, obj.correoServicio, obj.telefonoReservaciones, obj.correoReservaciones, obj.fotoHotel,
-                        obj.valoracion, obj.estadohotel, obj.latitud, obj.longitud, obj.mapa, obj.cantRates,obj.totalValor);
+                        obj.valoracion, obj.estadohotel, obj.latitud, obj.longitud, obj.mapa, obj.cantRates, obj.totalValor);
 
                     hotelTemp.push(objHotelNuevo);
                 });
@@ -164,7 +164,7 @@
             let hotelLS = dataStorageFactory.getHotelData(),
                 hotelAct = [],
                 hotelActLS = [];
-
+            let mapa = [];
             if (hotelLS == null) {
                 return hotelActLS;
             } else {
@@ -174,67 +174,89 @@
                     }
                 }
                 hotelAct.forEach(objTemp => {
-                    let mapa = [];
+
                     mapa.push(objTemp.latitud);
                     mapa.push(objTemp.longitud);
 
-                    let objhotelAct = new Hotel(mapa);
 
-                    hotelActLS.push(objhotelAct);
+
+
                 });
-                return hotelActLS;
+                return mapa;
             }
         }
 
-
-        function _retornarAltitud() {
-            let AltitudLS = dataStorageFactory.getHotelData(),
-                AltitudAct = [],
-                Altitud = [];
-
-            if (AltitudLS == null) {
-                return AltitudActLS;
-            } else {
-                for (let i = 0; i < AltitudLS.length; i++) {
-                    if (AltitudLS[i].estadohotel == true) {
-                        AltitudAct.push(AltitudLS[i]);
+        function _ordenarRate(pmayorMenor) {
+            let hotelesActivos = _retornarHotelAct();
+            let Hotel5 = [];
+            if (pmayorMenor == true) {
+                for (let i = 0; i < hotelesActivos.length; i++) {
+                    if (hotelesActivos[i].valoracion == 5) {
+                        Hotel5.push(hotelesActivos[i]);
                     }
                 }
-                AltitudAct.forEach(objTemp => {
-                    let mapa = [];
-
-                    let objAltitudAct = new Hotel(objTemp.longitud);
-
-                    AltitudActLS.push(objAltitudAct);
-                });
-                return AltitudActLS;
-            }
-        }
-
-
-        function _retornarLatitud() {
-            let hotelLS = dataStorageFactory.getHotelData(),
-                hotelAct = [],
-                hotelActLS = [];
-
-            if (hotelLS == null) {
-                return hotelActLS;
-            } else {
-                for (let i = 0; i < hotelLS.length; i++) {
-                    if (hotelLS[i].estadohotel == true) {
-                        hotelAct.push(hotelLS[i]);
+                for (let i = 0; i < hotelesActivos.length; i++) {
+                    if (hotelesActivos[i].valoracion == 4) {
+                        Hotel5.push(hotelesActivos[i]);
                     }
                 }
-                hotelAct.forEach(objTemp => {
-                    let mapa = [];
+                for (let i = 0; i < hotelesActivos.length; i++) {
+                    if (hotelesActivos[i].valoracion == 3) {
+                        Hotel5.push(hotelesActivos[i]);
+                    }
+                }
+                for (let i = 0; i < hotelesActivos.length; i++) {
+                    if (hotelesActivos[i].valoracion == 2) {
+                        Hotel5.push(hotelesActivos[i]);
+                    }
+                }
+                for (let i = 0; i < hotelesActivos.length; i++) {
+                    if (hotelesActivos[i].valoracion == 1) {
+                        Hotel5.push(hotelesActivos[i]);
+                    }
+                }
 
-                    let objhotelAct = new Hotel(objTemp.latitud);
-
-                    hotelActLS.push(objhotelAct);
-                });
-                return hotelActLS;
+            } else {
+                if (pmayorMenor == false) {
+                    for (let i = 0; i < hotelesActivos.length; i++) {
+                        if (hotelesActivos[i].valoracion == 1) {
+                            Hotel5.push(hotelesActivos[i]);
+                        }
+                    }
+                    for (let i = 0; i < hotelesActivos.length; i++) {
+                        if (hotelesActivos[i].valoracion == 2) {
+                            Hotel5.push(hotelesActivos[i]);
+                        }
+                    }
+                    for (let i = 0; i < hotelesActivos.length; i++) {
+                        if (hotelesActivos[i].valoracion == 3) {
+                            Hotel5.push(hotelesActivos[i]);
+                        }
+                    }
+                    for (let i = 0; i < hotelesActivos.length; i++) {
+                        if (hotelesActivos[i].valoracion == 4) {
+                            Hotel5.push(hotelesActivos[i]);
+                        }
+                    }
+                    for (let i = 0; i < hotelesActivos.length; i++) {
+                        if (hotelesActivos[i].valoracion == 5) {
+                            Hotel5.push(hotelesActivos[i]);
+                        }
+                    }
+                }
             }
+            return Hotel5;
         }
 
+        function _ordenarNombre() {
+            let hotelesActivos = _retornarHotelAct();
+            let Hotel5 = [];
+            for (let i = 0; i < hotelesActivos.length; i++) {
+                if (hotelesActivos[i].valoracion == 5) {
+                    Hotel5.push(hotelesActivos[i]);
+                }
+            }
+            return Hotel5;
+        }
     }// fin servicio
 })();
