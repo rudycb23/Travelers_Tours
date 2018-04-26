@@ -20,12 +20,12 @@
 | node_modules\bootstrap\dist\js\bootstrap.js | 179 | Remove in v5
 | node_modules\bootstrap\dist\js\bootstrap.js | 2276 | @fat these should probably be refactored out of modal.js
 | node_modules\bootstrap\dist\js\bootstrap.js | 3435 | @fat remove sketch reliance on jQuery position/offset
-| node_modules\bootstrap\js\dist\modal.js | 400 | @fat these should probably be refactored out of modal.js
-| node_modules\bootstrap\js\dist\scrollspy.js | 117 | @fat remove sketch reliance on jQuery position/offset
-| node_modules\bootstrap\js\dist\util.js | 108 | Remove in v5
 | node_modules\bootstrap\js\src\modal.js | 402 | @fat these should probably be refactored out of modal.js
 | node_modules\bootstrap\js\src\scrollspy.js | 132 | @fat remove sketch reliance on jQuery position/offset
 | node_modules\bootstrap\js\src\util.js | 120 | Remove in v5
+| node_modules\bootstrap\js\dist\modal.js | 400 | @fat these should probably be refactored out of modal.js
+| node_modules\bootstrap\js\dist\scrollspy.js | 117 | @fat remove sketch reliance on jQuery position/offset
+| node_modules\bootstrap\js\dist\util.js | 108 | Remove in v5
 | node_modules\browser-sync\client\dist\index.js | 153 | add a `localStorage` variable to explicitly enable/disable colors
 | node_modules\bson\lib\bson\decimal128.js | 239 | implementing a custom parsing for this, or refactoring the regex would yield
 | node_modules\connect\node_modules\debug\browser.js | 37 | add a `localStorage` variable to explicitly enable/disable colors
@@ -69,9 +69,9 @@
 | node_modules\jsdoc\lib\jsdoc\schema.js | 385 | define this as an enumeration elsewhere
 | node_modules\jsdoc\lib\jsdoc\schema.js | 504 | make these an enumeration
 | node_modules\jsdoc\templates\default\publish.js | 675 | move the tutorial functions to templateHelper.js
+| node_modules\moment\src\locale\fr.js | 50 | Return 'e' when day of month > 1. Move this case inside
 | node_modules\mongodb\lib\bulk\common.js | 202 | Something better
 | node_modules\mongodb\lib\bulk\ordered.js | 227 | Bring from driver information in isMaster
-| node_modules\moment\src\locale\fr.js | 50 | Return 'e' when day of month > 1. Move this case inside
 | node_modules\mongodb-core\lib\connection\pool.js | 1193 | reenable when sessions development is complete
 | node_modules\mongodb-core\lib\topologies\replset.js | 1188 | once we drop Node 4, use destructuring either here or in arguments.
 | node_modules\mongodb-core\lib\topologies\shared.js | 385 | 
@@ -87,7 +87,12 @@
 | node_modules\ngmap\build\scripts\ng-map.no-dependency.js | 254 | it's for backward compatibiliy. will be removed
 | node_modules\ngmap\build\scripts\ng-map.no-dependency.js | 878 | Add remove button.
 | node_modules\ngmap\build\scripts\ng-map.no-dependency.js | 1279 | DEPRECATED
-| node_modules\ngmap\spec\e2e\testapp_spec.js | 32 | apply retry when it has console error. e.g. google image 404 error
+| node_modules\ngmap\spec\directives\map_spec_bak.js | 64 | need to test events, but don't know how to detect event in a map
+| node_modules\ngmap\spec\directives\map_spec_bak.js | 68 | need to test observers
+| node_modules\ngmap\spec\directives\marker_spec_bak.js | 55 | need to test marker events, but don't know don't know how to get events of a marker
+| node_modules\ngmap\spec\directives\marker_spec_bak.js | 59 | need to test marker observers
+| node_modules\ngmap\spec\directives\shape_spec_bak.js | 47 | should test events, but don't know how to get events of a shape
+| node_modules\ngmap\spec\directives\shape_spec_bak.js | 51 | need to test observers
 | node_modules\ngmap\spec\lib\angular-mocks.js | 46 | @vojta remove this temporary api
 | node_modules\ngmap\spec\lib\angular-mocks.js | 876 | @i this prevents methods being logged,
 | node_modules\ngmap\spec\lib\angular-mocks.js | 1156 | @vojta change params to: method, url, data, headers, callback
@@ -112,17 +117,12 @@
 | node_modules\ngmap\spec\lib\angular.js | 24480 | @perf generate setters to shave off ~40ms or 1-1.5%
 | node_modules\ngmap\spec\lib\angular.js | 24687 | @perf support naked previousNode in `enter` to avoid creation of jqLite wrapper?
 | node_modules\ngmap\spec\lib\angular.js | 25889 | Add a test for this case
-| node_modules\ngmap\spec\directives\map_spec_bak.js | 64 | need to test events, but don't know how to detect event in a map
-| node_modules\ngmap\spec\directives\map_spec_bak.js | 68 | need to test observers
-| node_modules\ngmap\spec\directives\marker_spec_bak.js | 55 | need to test marker events, but don't know don't know how to get events of a marker
-| node_modules\ngmap\spec\directives\marker_spec_bak.js | 59 | need to test marker observers
-| node_modules\ngmap\spec\directives\shape_spec_bak.js | 47 | should test events, but don't know how to get events of a shape
-| node_modules\ngmap\spec\directives\shape_spec_bak.js | 51 | need to test observers
 | node_modules\ngmap\spec\services\attr2_options_spec.js | 184 | 
 | node_modules\ngmap\spec\services\attr2_options_spec.js | 190 | 
 | node_modules\ngmap\spec\services\attr2_options_spec.js | 196 | 
 | node_modules\ngmap\spec\services\attr2_options_spec.js | 201 | need some mock jobs for object, NavigatorGeolocation and GeoCoder
 | node_modules\ngmap\spec\services\attr2_options_spec.js | 205 | needs some mock jobs for object and attrs
+| node_modules\ngmap\spec\e2e\testapp_spec.js | 32 | apply retry when it has console error. e.g. google image 404 error
 | node_modules\ngmap\testapp\lib\angular-ui-router.js | 1249 | in 1.0, make string .is() return false if value is undefined/null by default.
 | node_modules\ngmap\testapp\lib\angular-ui-router.js | 1998 | Optimize groups of rules with non-empty prefix into some sort of decision tree
 | node_modules\ngmap\testapp\lib\angular-ui-router.js | 2003 | Re-implement this in 1.0 for https://github.com/angular-ui/ui-router/issues/1573
@@ -213,15 +213,15 @@
 | node_modules\@uirouter\core\lib-esm\transition\transition.js | 163 | Also compare parameters
 | node_modules\@uirouter\core\lib-esm\url\urlMatcherFactory.js | 76 | typeof?
 | node_modules\@uirouter\core\lib-esm\view\view.js | 56 | Validate incoming view name with a regexp to allow:
+| node_modules\csso\lib\compressor\restructure\1-initialMergeRuleset.js | 41 | remove initial merge
+| node_modules\csso\lib\compressor\restructure\8-restructRuleset.js | 80 | need to be checked
+| node_modules\csso\lib\compressor\restructure\8-restructRuleset.js | 136 | disallow up merge only if any property interception only (i.e. diff.ne2overrided.length > 0);
 | node_modules\csso\lib\compressor\clean\Ruleset.js | 16 | remove toLowerCase when type selectors will be normalized
 | node_modules\csso\lib\compressor\compress\color.js | 290 | remove those tokens
 | node_modules\csso\lib\compressor\compress\color.js | 297 | remove those tokens
 | node_modules\csso\lib\compressor\compress\color.js | 307 | remove those tokens
 | node_modules\csso\lib\compressor\compress\color.js | 315 | remove those tokens
 | node_modules\csso\lib\compressor\compress\Url.js | 30 | make better quote type selection
-| node_modules\csso\lib\compressor\restructure\1-initialMergeRuleset.js | 41 | remove initial merge
-| node_modules\csso\lib\compressor\restructure\8-restructRuleset.js | 80 | need to be checked
-| node_modules\csso\lib\compressor\restructure\8-restructRuleset.js | 136 | disallow up merge only if any property interception only (i.e. diff.ne2overrided.length > 0);
 | node_modules\duplexer2\node_modules\readable-stream\lib\_stream_writable.js | 162 | defer error events consistently everywhere, not just the cb
 | node_modules\duplexer2\node_modules\readable-stream\lib\_stream_writable.js | 365 | @isaacs clean this up
 | node_modules\engine.io\node_modules\debug\src\browser.js | 41 | add a `localStorage` variable to explicitly enable/disable colors
@@ -318,8 +318,8 @@
 | node_modules\jsdoc\lib\jsdoc\util\templateHelper.js | 941 | generate a warning (ideally during parsing!)
 | node_modules\jsdoc\lib\jsdoc\util\templateHelper.js | 975 | docs
 | node_modules\jsdoc\plugins\test\specs\markdown.js | 13 | more tests; refactor the plugin so multiple settings can be tested
-| node_modules\localtunnel\node_modules\debug\src\browser.js | 36 | add a `localStorage` variable to explicitly enable/disable colors
 | node_modules\localtunnel\node_modules\yargs\lib\validation.js | 136 | case-insensitive configurability
+| node_modules\localtunnel\node_modules\debug\src\browser.js | 36 | add a `localStorage` variable to explicitly enable/disable colors
 | node_modules\moment\src\lib\create\from-array.js | 100 | We need to take the current isoWeekYear, but that depends on
 | node_modules\moment\src\lib\create\from-string-and-format.js | 19 | Move this to another part of the creation flow to prevent circular deps
 | node_modules\moment\src\lib\create\from-string.js | 136 | Replace the vanilla JS Date object with an indepentent day-of-week check.
@@ -544,7 +544,6 @@
 | node_modules\node-sass\test\types.js | 518 | TypeError
 | node_modules\node-sass\test\types.js | 610 | TypeError
 | node_modules\readable-stream\lib\_stream_writable.js | 289 | defer error events consistently everywhere, not just the cb
-| node_modules\request\lib\auth.js | 52 | More complete implementation of RFC 2617.
 | node_modules\sanitize-html\dist\sanitize-html.js | 926 | Legacy, not needed anymore. Remove in next major version.
 | node_modules\sanitize-html\dist\sanitize-html.js | 3770 | consider creating a merged map
 | node_modules\sanitize-html\dist\sanitize-html.js | 3855 | add ranges
@@ -556,6 +555,7 @@
 | node_modules\sanitize-html\dist\sanitize-html.js | 22405 | defer error events consistently everywhere, not just the cb
 | node_modules\sanitize-html\dist\sanitize-html.js | 23281 | Handling all encodings inside a single object makes it very difficult
 | node_modules\sanitize-html\dist\sanitize-html.js | 23283 | There should be a utf8-strict encoding that rejects invalid UTF-8 code
+| node_modules\request\lib\auth.js | 52 | More complete implementation of RFC 2617.
 | node_modules\stylus\lib\parser.js | 2054 | TernaryOp :)
 | node_modules\svgo\plugins\convertPathData.js | 71 | get rid of functions returns
 | node_modules\svgo\plugins\convertShapeToPath.js | 42 | Calculate sizes from % and non-px units if possible.

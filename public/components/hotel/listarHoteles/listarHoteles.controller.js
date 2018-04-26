@@ -21,16 +21,24 @@
 
         vm.mapa = servicioHoteles.retornarMapa()
 
-
+        let reverse = false;
         vm.ordenNombre = () => {
-            vm.listaHoteles = servicioHoteles.ordenarNombre();
+            vm.listaHoteles = servicioHoteles.ordenarNombre(reverse);
+
+            if (reverse == false) {
+                reverse = true;
+            } else {
+                if (reverse == true) {
+                    reverse = false;
+                }
+            }
         }
 
+
         let mayorMenor = true;
-
         vm.ordenRate = () => {
-
             vm.listaHoteles = servicioHoteles.ordenarRate(mayorMenor);
+            // cambiamos el orden de mayor a menor o viceversa cada vez que se pulsa el botón//
             if (mayorMenor == false) {
                 mayorMenor = true;
             } else {
@@ -38,7 +46,6 @@
                     mayorMenor = false;
                 }
             }
-
         }
 
 

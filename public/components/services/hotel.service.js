@@ -189,74 +189,60 @@
         function _ordenarRate(pmayorMenor) {
             let hotelesActivos = _retornarHotelAct();
             let Hotel5 = [];
-            if (pmayorMenor == true) {
-                for (let i = 0; i < hotelesActivos.length; i++) {
-                    if (hotelesActivos[i].valoracion == 5) {
-                        Hotel5.push(hotelesActivos[i]);
-                    }
-                }
-                for (let i = 0; i < hotelesActivos.length; i++) {
-                    if (hotelesActivos[i].valoracion == 4) {
-                        Hotel5.push(hotelesActivos[i]);
-                    }
-                }
-                for (let i = 0; i < hotelesActivos.length; i++) {
-                    if (hotelesActivos[i].valoracion == 3) {
-                        Hotel5.push(hotelesActivos[i]);
-                    }
-                }
-                for (let i = 0; i < hotelesActivos.length; i++) {
-                    if (hotelesActivos[i].valoracion == 2) {
-                        Hotel5.push(hotelesActivos[i]);
-                    }
-                }
-                for (let i = 0; i < hotelesActivos.length; i++) {
-                    if (hotelesActivos[i].valoracion == 1) {
-                        Hotel5.push(hotelesActivos[i]);
-                    }
-                }
 
-            } else {
-                if (pmayorMenor == false) {
-                    for (let i = 0; i < hotelesActivos.length; i++) {
-                        if (hotelesActivos[i].valoracion == 1) {
-                            Hotel5.push(hotelesActivos[i]);
-                        }
-                    }
-                    for (let i = 0; i < hotelesActivos.length; i++) {
-                        if (hotelesActivos[i].valoracion == 2) {
-                            Hotel5.push(hotelesActivos[i]);
-                        }
-                    }
-                    for (let i = 0; i < hotelesActivos.length; i++) {
-                        if (hotelesActivos[i].valoracion == 3) {
-                            Hotel5.push(hotelesActivos[i]);
-                        }
-                    }
-                    for (let i = 0; i < hotelesActivos.length; i++) {
-                        if (hotelesActivos[i].valoracion == 4) {
-                            Hotel5.push(hotelesActivos[i]);
-                        }
-                    }
-                    for (let i = 0; i < hotelesActivos.length; i++) {
-                        if (hotelesActivos[i].valoracion == 5) {
-                            Hotel5.push(hotelesActivos[i]);
-                        }
-                    }
-                }
-            }
-            return Hotel5;
-        }
-
-        function _ordenarNombre() {
-            let hotelesActivos = _retornarHotelAct();
-            let Hotel5 = [];
             for (let i = 0; i < hotelesActivos.length; i++) {
                 if (hotelesActivos[i].valoracion == 5) {
                     Hotel5.push(hotelesActivos[i]);
                 }
             }
+            for (let i = 0; i < hotelesActivos.length; i++) {
+                if (hotelesActivos[i].valoracion == 4) {
+                    Hotel5.push(hotelesActivos[i]);
+                }
+            }
+            for (let i = 0; i < hotelesActivos.length; i++) {
+                if (hotelesActivos[i].valoracion == 3) {
+                    Hotel5.push(hotelesActivos[i]);
+                }
+            }
+            for (let i = 0; i < hotelesActivos.length; i++) {
+                if (hotelesActivos[i].valoracion == 2) {
+                    Hotel5.push(hotelesActivos[i]);
+                }
+            }
+            for (let i = 0; i < hotelesActivos.length; i++) {
+                if (hotelesActivos[i].valoracion == 1) {
+                    Hotel5.push(hotelesActivos[i]);
+                }
+            }
+            if (pmayorMenor == false) {
+                Hotel5.reverse();
+            }
             return Hotel5;
+        }
+
+        function _ordenarNombre(reverse) {
+
+            let hotelesActivos = _retornarHotelAct();
+            let ordenando = [];
+            let ordenado = [];
+
+            for (let i = 0; i < hotelesActivos.length; i++) {
+                ordenando.push(hotelesActivos[i].nombreHotel);
+            }
+            ordenando.sort();
+
+            for (let i = 0; i < ordenando.length; i++) {
+                for (let j = 0; j < hotelesActivos.length; j++) {
+                    if (ordenando[i] == hotelesActivos[j].nombreHotel) {
+                        ordenado.push(hotelesActivos[j]);
+                    }
+                }
+            }
+            if (reverse == true) {
+                ordenado.reverse();
+            }
+            return ordenado;
         }
     }// fin servicio
 })();
