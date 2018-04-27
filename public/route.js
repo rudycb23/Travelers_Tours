@@ -70,6 +70,21 @@
         controllerAs: 'vm'
       })
 
+      .state('main.modificarCliente', {
+        url: '/modificarCliente',
+        templateUrl: './components/usuarios/cliente/modificar cliente/modificarCliente.view.html',
+        data: {
+          pageTitle: 'Modificar cliente'
+        },
+        resolve: {
+          load: ['$ocLazyLoad', ($ocLazyLoad) => {
+            return $ocLazyLoad.load('./components/usuarios/cliente/modificar cliente/modificarCliente.controller.js')
+          }]
+        },
+        controller: 'controladorModificarCliente',
+        controllerAs: 'vm'
+      })
+
 
       .state('registrarCliente', {
         url: '/registrarCliente',
@@ -159,6 +174,21 @@
           }]
         },
         controller: 'controladorModificarHotel',
+        controllerAs: 'vm'
+      })
+
+      .state('main.acerca', {
+        url: '/acerca',
+        templateUrl: './components/TravelersTours/travelersTours.view.html',
+        data: {
+          pageTitle: 'Acerca de esta paágina'
+        },
+        resolve: {
+          load: ['$ocLazyLoad', ($ocLazyLoad) => {
+            return $ocLazyLoad.load('./components//TravelersTours/travelersTours.controller.js')
+          }]
+        },
+        controller: 'controladorAcerca',
         controllerAs: 'vm'
       })
 

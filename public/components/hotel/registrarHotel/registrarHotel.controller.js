@@ -82,11 +82,11 @@
             let valoracion = 0;
             let estadohotel = true;
             let latitud = vm.coords[0],
-            longitud = vm.coords[1];
+                longitud = vm.coords[1];
             let mapa = [];
-                    mapa.push(latitud);
-                    mapa.push(longitud);
-            
+            mapa.push(latitud);
+            mapa.push(longitud);
+
             let ubicacion = vm.coords;
             let cantRates = 0;
             let totalValor = 0;
@@ -94,7 +94,7 @@
             let objNuevoHotel = new Hotel(photelNuevo.idHotel, photelNuevo.nombreHotel, photelNuevo.provincia.name,
                 photelNuevo.canton.name, photelNuevo.distrito.name, photelNuevo.direccion, photelNuevo.telefonoServicio,
                 photelNuevo.correoServicio, photelNuevo.telefonoReservaciones, photelNuevo.correoReservaciones, urlImagen,
-                valoracion, estadohotel, latitud,longitud,mapa, cantRates, totalValor);
+                valoracion, estadohotel, latitud, longitud, mapa, cantRates, totalValor);
 
             let registro = servicioHoteles.agregarHotel(objNuevoHotel);
 

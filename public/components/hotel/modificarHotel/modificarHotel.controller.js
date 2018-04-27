@@ -21,15 +21,15 @@
     vm.rol = userAuth.getRol();
     vm.hotelMostrar = hotelActivo;
 
-  
-      let coords =[]; 
-      coords[0]=(hotelActivo.latitud);
-      coords[1]=(hotelActivo.longitud);
 
-      console.log(coords);
+    let coords = [];
+    coords[0] = (hotelActivo.latitud);
+    coords[1] = (hotelActivo.longitud);
 
-      vm.position = coords;
-    
+    console.log(coords);
+
+    vm.position = coords;
+
 
 
     vm.provincias = $http({
@@ -110,32 +110,25 @@
     });
 
     let valor = 0,
-        subvalorGeneral = 0;
+      subvalorGeneral = 0;
 
     vm.valorarHotel = (comida, servicio, habitaciones, infraestructura, limpieza) => {
       const hotelActivo = servicioHoteles.consultarDatosSession();
       let Rates = hotelActivo.cantRates,
-      valoracionTotal = hotelActivo.totalValor,
-      totalRates = Rates+1;
+        valoracionTotal = hotelActivo.totalValor,
+        totalRates = Rates + 1;
       let subvalor = Math.round((comida.name + servicio.name + habitaciones.name + infraestructura.name + limpieza.name) / 5);
       let totalValor = valoracionTotal + subvalor;
-      let subvalorGeneral = Math.round(totalValor /totalRates);
-      
-     
-     
+      let subvalorGeneral = Math.round(totalValor / totalRates);
 
-     let valoracion= subvalorGeneral;
-     let estadohotel = true;
-     let cantRates = totalRates;
-    
+      let valoracion = subvalorGeneral;
+      let estadohotel = true;
+      let cantRates = totalRates;
 
-     let objHotelFormato = new Hotel (hotelActivo.idHotel, hotelActivo.nombreHotel, hotelActivo.provincia, hotelActivo.canton, hotelActivo.distrito, hotelActivo.direccion, hotelActivo.telefonoServicio, hotelActivo.correoServicio, hotelActivo.telefonoReservaciones, hotelActivo.correoReservaciones, hotelActivo.fotoHotel, valoracion, estadohotel, hotelActivo.latitud, hotelActivo.longitud, hotelActivo.mapa, cantRates, totalValor);
-    
+      let objHotelFormato = new Hotel(hotelActivo.idHotel, hotelActivo.nombreHotel, hotelActivo.provincia, hotelActivo.canton, hotelActivo.distrito, hotelActivo.direccion, hotelActivo.telefonoServicio, hotelActivo.correoServicio, hotelActivo.telefonoReservaciones, hotelActivo.correoReservaciones, hotelActivo.fotoHotel, valoracion, estadohotel, hotelActivo.latitud, hotelActivo.longitud, hotelActivo.mapa, cantRates, totalValor);
 
-    
-  
       let updateValido = servicioHoteles.editarHotel(objHotelFormato);
-  
+
       if (updateValido == true) {
         swal({
           title: "Acción con éxito",
@@ -143,7 +136,7 @@
           icon: "success",
           button: "Aceptar"
         });
-  
+
         $state.go('main.listarHoteles');
       }
       vm.HotelNueva = null;
@@ -153,14 +146,11 @@
 
     vm.hotelMod = {};
 
-  
+
 
     vm.cloudObj = imageUploadService.getConfiguration();
 
     vm.preRegistrarHotel = (photelNuevo) => {
-
-
-
 
       vm.cloudObj.data.file = photelNuevo.foto[0];
       Upload.upload(vm.cloudObj).success((data) => {
@@ -168,15 +158,25 @@
       });
     }
 
-    vm.editarHotel = (photelEditar) => {
-      if (photelEditar.estadoHotel == null) {
-        photelEditar.estadoHotel = true;
-      }
 
-      let objHotelFormato = new Hotel(photelEditar.idHotel, photelEditar.nombreHotel, photelEditar.provincia.name,
-        photelEditar.canton.name, photelEditar.distrito.name, photelEditar.direccion, photelEditar.telefonoServicio,
-        photelEditar.correoServicio, photelEditar.telefonoReservaciones, photelEditar.correoReservaciones, urlImagen,
-        valoracion, estadohotel, photelEditar.latitud, photelEditar.longitud, photelEditar.mapa, photelEditar.cantRates, photelEditar.totalValor);
+
+
+    vm.onDragEnd = ($event) => {
+      let postion = [$event.latLng.lat(), $event.latLng.lng()];
+
+      vm.coords = postion;
+  }
+    vm.modificarHotel = (hotelMod, urlImagen) => {
+
+      let latitud = vm.coords[0],
+        longitud = vm.coords[1];
+      let mapa = [];
+      mapa.push(latitud);
+      mapa.push(longitud);
+
+      let ubicacion = vm.coords;
+
+      let objHotelFormato = new Hotel(hotelActivo.idHotel, hotelMod.nombreHotel, hotelMod.provincia, hotelMod.canton, hotelMod.distrito, hotelMod.direccion, hotelMod.telefonoServicio, hotelMod.correoServicio, hotelMod.telefonoReservaciones, hotelMod.correoReservaciones, hotelMod.fotoHotel, hotelActivo.valoracion, hotelActivo.estadohotel, hotelMod.latitud, hotelMod.longitud, hotelMod.mapa, hotelActivo.cantRates, hotelActivo.totalValor);
 
       let updateValido = servicioHoteles.editarHotel(objHotelFormato);
 

@@ -1,0 +1,119 @@
+<main class="hero" id="registroClientes">
+    <section class="container fondoBLC" id="registrarCliente">
+        <div class="row mt-6">
+            <div class="col-md-12 mb-5">
+                <h1 id="tituloPrincipal" class="text-center mt-3">Edite información</h1>
+                <p class="text-muted text-center texto-descripcion">Ingrese los datos solicitados para actualizar su información</p>
+            </div>
+        </div>
+
+        <div class="container justify-content-center">
+            <form name="frmRegistroViajero" ng-submit="vm.RegistrarViajero(vm.travelerNuevo)" novalidate autocomplete="off">
+
+                <div class="row">
+                    <div class="form-group col-md-4">
+                        <label for="txtNombre">Primer nombre:</label>
+                        <input type="text" class="form-control" id="txtNombre" name="campoNombre1" pattern="[ñáéíóúA-Za-z ]+" ng-model="vm.travelerNuevo.primerNombre"
+                            required>
+                        <div ng-messages="frmRegistroViajero.campoNombre1.$error" role="alert">
+                            <div ng-message="required">
+                                <small class="form-text text-danger">Este campo es requerido</small>
+                            </div>
+                            <div ng-message="pattern">
+                                <small class="form-text text-muted">Formato incorrecto</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-4">
+                        <label for="txtSegundoNombre">Segundo nombre:</label>
+                        <input type="text" class="form-control" id="txtSegundoNombre" ng-model="vm.travelerNuevo.segundoNombre">
+                        <small class="form-text text">*Campo opcional</small>
+                    </div>
+
+                    <div class="form-group col-md-4">
+                        <label for="txtPrimerApellido">Primer apellido:</label>
+                        <input type="text" class="form-control" id="txtPrimerApellido" pattern="[ñáéíóúA-Za-z ]+" name="campoApellido1" ng-model="vm.travelerNuevo.primerApellido"
+                            required>
+                        <div ng-messages="frmRegistroViajero.campoApellido1.$error" role="alert">
+                            <div ng-message="required">
+                                <small class="form-text text-danger">Este campo es requerido</small>
+                            </div>
+                            <div ng-message="pattern">
+                                <small class="form-text text-muted">Formato incorrecto</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-4">
+                        <label for="txtSegundoApellido">Segundo apellido:</label>
+                        <input type="text" class="form-control" id="txtSegundoApellido" ng-model="vm.travelerNuevo.segundoApellido">
+                        <small class="form-text text">*Campo opcional</small>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="txtCedula">Cédula de identidad:</label>
+                        <input type="number" class="form-control" id="txtCedula" name="campoCedula" ng-model="vm.travelerNuevo.cedula" required>
+                    </div>
+
+                    <div class="form-group col-md-4">
+                        <label for="sltSexo">Sexo:</label>
+                        <select id="sltSexo" class="custom-select" name="campoSexo" ng-model="vm.travelerNuevo.genero" required>
+                            <option value="">Seleccione un sexo</option>
+                            <option value="Femenino">Femenino</option>
+                            <option value="Masculino">Masculino</option>
+                            <option value="Otro">Otro</option>
+                        </select>
+                        <div ng-messages="frmRegistroViajero.campoSexo.$error" role="alert">
+                            <div ng-message="required">
+                                <small class="form-text text-danger">Este campo es requerido</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-4">
+                        <label for="txtTelefono">Teléfono:</label>
+                        <input type="number" class="form-control" id="txtTelefono" name="campoTelefono" ng-model="vm.travelerNuevo.telefono" required>
+                        <div ng-messages="frmRegistroViajero.campoTelefono.$error" role="alert">
+                            <div ng-message="required">
+                                <small class="form-text text-danger">Este campo es requerido</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-4">
+                        <label for="txtFechaNacimiento">Fecha de nacimiento:</label>
+                        <input type="date" class="form-control" id="txtFechaNacimiento" name="campoFechaNacimiento" ng-model="vm.travelerNuevo.edad"
+                            required>
+                        <div ng-messages="frmRegistroViajero.campoFechaNacimiento.$error" role="alert">
+                            <div ng-message="required">
+                                <small class="form-text text-danger">Este campo es requerido</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-4">
+                        <label for="txtContrasenna">Confirme la contraseña:</label>
+                        <input type="password" class="form-control" id="txtContrasenna" ng-model="vm.travelerNuevo.contrasenna">
+                        <small class="form-text text">*Este campo es requerido</small>
+                    </div>
+
+                    <div class="form-group col-md-4">
+                        <label for="txtContrasenna2">Confirme la contraseña:</label>
+                        <input type="password" class="form-control" id="txtContrasenna2" ng-model="vm.travelerNuevo.contrasenna2">
+                        <small class="form-text text">*Este campo es requerido</small>
+                    </div>
+                </div>
+
+                <div class="row mt-5">
+                    <div class="mx-auto">
+                        <button id="btn2" type="button" class="btn btn-secondary" ng-click="vm.regresar()">Regresar</button>
+                        <button id="btn-login" type="submit" class="btn">Registrar cliente</button>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+
+
+    </section>
+</main>

@@ -1,66 +1,71 @@
-// // (() => {
-//     'use strict';
-//     angular
-//         .module('correosCR')
-//         .controller('controladorEditarCliente', controladorEditarCliente)
+(() => {
+    'use strict';
+    angular
+        .module('travelersTours')
+        .controller('controladorModificarCliente', controladorModificarCliente);
 
-//         controladorEditarCliente.$inject = ['$stateParams', '$state', '$http', 'servicioUsuarios'];
+    controladorModificarCliente.$inject = ['$http', '$stateParams', '$state', 'servicioUsuarios', 'servicioLogin'];
 
-//     function controladorEditarCliente($stateParams, $state, $http, servicioUsuarios) {
-//         let vm = this;
+    function controladorModificarCliente($http, $stateParams, $state, servicioUsuarios, servicioLogin) {
 
-//         //if (!$stateParams.objEntierro) {
-//         //    $state.go('listarUsuarios');
-//         //}
+        const vm = this;
+        const userAuth = servicioLogin.getAuthUser();
+        let usuarioActivo = userAuth.getCorreo();
+        vm.travelerNuevo = {};
 
-//         let objClienteSinFormato = JSON.parse($stateParams.objEntierro);
+        vm.RegistrarViajero = (ptravelerNuevo) => {
 
-//         let objClienteFormato = new Cliente (objClienteSinFormato.primerNombre, objClienteSinFormato.segundoNombre, objClienteSinFormato.primerApellido, objClienteSinFormato.segundoApellido, objClienteSinFormato.cedula, objClienteSinFormato.fecha, objClienteSinFormato.genero, objClienteSinFormato.ubicacion, objClienteSinFormato.provincia, objClienteSinFormato.canton, objClienteSinFormato.distrito, objClienteSinFormato.direccion, objClienteSinFormato.correo, objClienteSinFormato.foto, objClienteSinFormato.contrasenna, objClienteSinFormato.rol, objClienteSinFormato.estado);
+            let confirmarContrasenna = false,
+                contrasenna1 = vm.travelerNuevo.contrasenna,
+                contrasenna2 = vm.travelerNuevo.contrasenna2;
 
-//         let datos = [objClienteFormato.getCorreo()];
+            if (contrasenna1 == contrasenna2) {
+                confirmarContrasenna = true;
+            }
 
-//         vm.clienteEditado = {}
-//         vm.clienteEditado.primerNombre = objClienteFormato.primerNombre;
-//         vm.clienteEditado.segundoNombre = objClienteFormato.segundoNombre;
-//         vm.clienteEditado.primerApellido = objClienteFormato.primerApellido;
-//         vm.clienteEditado.segundoApellido = objClienteFormato.segundoApellido;
-//         vm.clienteEditado.cedula = objClienteFormato.cedula;
-//         vm.clienteEditado.fecha = objClienteFormato.fecha;
-//         vm.clienteEditado.genero = objClienteFormato.genero;
-//         vm.clienteEditado.ubicacion = objClienteFormato.ubicacion;
-//         vm.clienteEditado.provincia = objClienteFormato.provincia;
-//         vm.clienteEditado.canton = objClienteFormato.canton;
-//         vm.clienteEditado.distrito = objClienteFormato.distrito;
-//         vm.clienteEditado.direccion = objClienteFormato.direccion;
-//         vm.clienteEditado.correo = objClienteFormato.correo;
-//         vm.clienteEditado.foto = objClienteFormato.foto;
-//         vm.clienteEditado.contrasenna = objClienteFormato.contrasenna;
-//         vm.clienteEditado.rol = objClienteFormato.rol;
-//         vm.clienteEditado.estado = objClienteFormato.estado;
+            if (confirmarContrasenna == true) {
+                let rol = usuarioActivo.rol;
 
-//         vm.editarUsuario = (pusuario) => {
+                let objNuevoViajero = new Usuario(ptravelerNuevo.cedula, ptravelerNuevo.primerNombre,
+                    ptravelerNuevo.segundoNombre, ptravelerNuevo.primerApellido, ptravelerNuevo.segundoApellido,
+                    ptravelerNuevo.edad, ptravelerNuevo.genero, usuarioActivo.correo, ptravelerNuevo.telefono,
+                    ptravelerNuevo.contrasenna, rol);
 
-//             let clienteEditado = new usuario (pentierro.entierroID, pentierro.horaInicio, pentierro.horaFinal, pentierro.fecha, pentierro.lugar, pentierro.prioridad);
+                let registro = servicioUsuarios.actualizarUsuario(objNuevoViajero);
 
-//             objEntierroEditado.setCedulaCliente(datos[0]);
-//             objEntierroEditado.setIdDifunto(datos[1]);
 
-//             let actualizarCorrecto = servicioUsuarios.actualizarEntierro(objEntierroEditado);
+                if (registro == true) {
+                    swal({
+                        title: "Registro exitoso",
+                        text: "Cliente actualizado correctamente",
+                        icon: "success",
+                        button: "Aceptar"
+                    });
+                    vm.clienteNuevo = null;
 
-//             if (actualizarCorrecto == true) {
-//                 swal({
-//                     title: "Actualización exitosa",
-//                     text: "Entierro actualizado correctamente",
-//                     icon: "success",
-//                     button: "Aceptar"
-//                 });
+                } else {
+                    swal({
+                        title: "Ha ocurrido un Error",
+                        text: "El usuario no se actualizó.",
+                        icon: "error",
+                        button: "Aceptar"
+                    });
+                }
+            }// confirmar contraseña
+            else {
 
-//                 $state.go('listarDifuntos');
-//             }
-//         }
+                swal({
+                    title: "Atención",
+                    text: "Las contraseñas no coinciden",
+                    icon: "error",
+                    button: "Aceptar"
+                });
+            }
+        }// fin registrar nuevo cliente
 
-//         vm.regresar = () => {
-//             $state.go('listarDifuntos');
-//         }
-//     }
-// })();a
+        
+        vm.regresar = () => {
+            $state.go('main.inicio');
+        }
+    }// fin controlador
+})();
