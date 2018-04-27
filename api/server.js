@@ -62,8 +62,9 @@ app.use( (req, res, next) => {
  * Exportamos las funcionalidades
  */
 const index = require('./index');
-const user = require('./components/usuarios/usuarios.route')
-const hotel = require('./components/hotel/hotel.route')
+const user = require('./components/usuarios/usuarios.route');
+const hotel = require('./components/hotel/hotel.route');
+const mail = require('./components/mail/mail.route');
 
 
 /**
@@ -72,6 +73,7 @@ const hotel = require('./components/hotel/hotel.route')
 
 app.use('/api', user);
 app.use('/api', hotel);
+app.use('/api', mail);
 
 
 

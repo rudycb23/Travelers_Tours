@@ -1,5 +1,3 @@
-<navegacion-Principal></navegacion-Principal>
-
 <main class="hero" id="registroHotel">
     <section id="registrarCliente" class="fondoBLC">
         <div class="row mt-5">
@@ -162,9 +160,10 @@
 
                 <div class="row mt-5">
                     <div class="mx-auto">
-                        <button type="submit" class="btn">Registrar hotel</button>
+                        <button id="btn2" type="button" class="btn btn-secondary" ng-click="vm.regresar()">Regresar</button>
+
+                        <button id="btn-login" type="submit" class="btn">Registrar hotel</button>
                     </div>
-                    <button type="button" class="btn btn-secondary" ng-click="vm.regresar()">Regresar</button>
                 </div>
             </form>
         </div>

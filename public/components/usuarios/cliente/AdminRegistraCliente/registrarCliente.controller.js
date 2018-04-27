@@ -36,7 +36,7 @@
         if (registro == true) {
           swal({
             title: "Registro exitoso",
-            text: "Cliente registrado correctamente, se ha enviado un correo electrónico con una contraseña provisional",
+            text: "Cliente registrado correctamente",
             icon: "success",
             button: "Aceptar"
           });

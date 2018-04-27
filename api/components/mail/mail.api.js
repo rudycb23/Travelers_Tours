@@ -5,16 +5,16 @@ module.exports.enviarCorreo = (req, res) => {
   let transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-      user: 'catalyst.proyecto@gmail.com',
-      pass: 'Prograweb2018'
+      user: 'rudy.cb23promotor@gmail.com',
+      pass: 'rudyneitorcb23'
     }
   });
 
   let mailOptions = {
-    from: 'catalyst.proyecto@gmail.com',
+    from: 'travelerstours@gmail.com',
     to: req.body.to,
     subject: req.body.subject,
-    text: 'Su contraseña temporal es: ' + req.body.text,
+    text: 'Su registro ha sido exitoso, le garantizamos que sus próximos viajes serán de mayor disfrute gracias a nustras selcción de hoteles.' , text:'Rudy.',
   };
 
   console.log(mailOptions);

@@ -12,6 +12,12 @@
 
 #btn-login {
     background-color: rgb(85, 228, 85);
+    color: black;
+}
+
+#btn2 {
+    background-color: rgb(219, 231, 40);
+    color: black;
 }
 
 #nuevoUsuario {

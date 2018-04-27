@@ -5,7 +5,7 @@
                 <h1 class="text-center">Informacion del hotel {{vm.hotelMostrar.nombreHotel}}</h1>
 
                 <section class="container InformacionHotel">
-                    <div id="row informacion">
+                    <div id="informacion" class="row">
                         <div class="col-md-6">
                             <p>ID Hotel: {{vm.hotelMostrar.idHotel}}</p>
                             <p>Nombre: {{vm.hotelMostrar.nombreHotel}}</p>
@@ -137,7 +137,7 @@
 
                             <div class="row mt-5">
                                 <div class="mx-auto">
-                                    <button type="submit" class="btn">Actualizar hotel</button>
+                                    <button id="btn-login" type="submit" class="btn">Actualizar hotel</button>
                                 </div>
                             </div>
                         </form>
@@ -152,32 +152,32 @@
                             <h2>deja una valoracion a este hotel</h2>
                             <p>Debe evaluar cada uno de los apectos con una nota minima de 1 y maxima como 5</p>
                         </div>
-                        <div class="form-group col-md-2">
-                            <label for="sltComida">Comida:</label>
+                        <div class="form-group col-md-4">
+                            <label for="sltComida">Calidad de comida y menú:</label>
                             <select id="sltComida" class="custom-select" ng-model="vm.hotelvalor.comida" ng-options="comida as comida.name for comida in vm.comida track by comida._id">
                                 <option value="">-Seleccione-</option>
                             </select>
                         </div>
-                        <div class="form-group col-md-2">
+                        <div class="form-group col-md-4">
                             <label for="sltServicio">Atención al cliente:</label>
                             <select id="sltServicio" class="custom-select" ng-model="vm.hotelvalor.servicio" ng-options="servicio as servicio.name for servicio in vm.servicio track by servicio._id">
                                 <option value="">-Seleccione-</option>
                             </select>
                         </div>
-                        <div class="form-group col-md-2">
-                            <label for="sltHabitaciones">Habitaciones:</label>
+                        <div class="form-group col-md-4">
+                            <label for="sltHabitaciones">Habitaciones y comodidad:</label>
                             <select id="sltHabitaciones" class="custom-select" ng-model="vm.hotelvalor.habitaciones" ng-options="habitaciones as habitaciones.name for habitaciones in vm.habitaciones track by habitaciones._id">
                                 <option value="">-Seleccione-</option>
                             </select>
                         </div>
-                        <div class="form-group col-md-2">
-                            <label for="sltInfraestructura">Infraestructura:</label>
+                        <div class="form-group col-md-4">
+                            <label for="sltInfraestructura">Infraestructura y estética:</label>
                             <select id="sltInfraestructura" class="custom-select" ng-model="vm.hotelvalor.infraestructura" ng-options="infraestructura as infraestructura.name for infraestructura in vm.infraestructura track by infraestructura._id">
                                 <option value="">-Seleccione-</option>
                             </select>
                         </div>
-                        <div class="form-group col-md-2">
-                            <label for="sltLimpieza">Limpieza:</label>
+                        <div class="form-group col-md-4">
+                            <label for="sltLimpieza">Limpieza, aseo y orden:</label>
                             <select id="sltLimpieza" class="custom-select" ng-model="vm.hotelvalor.limpieza" ng-options="limpieza as limpieza.name for limpieza in vm.limpieza track by limpieza._id">
                                 <option value="">-Seleccione-</option>
                             </select>
@@ -186,12 +186,12 @@
                     </div>
                     <div class="row mt-5">
                         <div class="mx-auto">
-                            <button type="button" class="btn btn-danger" ng-click="vm.valorarHotel( vm.hotelvalor.comida,vm.hotelvalor.servicio,vm.hotelvalor.habitaciones,vm.hotelvalor.infraestructura,vm.hotelvalor.limpieza)">Guardar</button>
+                            <button id="btn-login" type="button" class="btn btn-danger" ng-click="vm.valorarHotel( vm.hotelvalor.comida,vm.hotelvalor.servicio,vm.hotelvalor.habitaciones,vm.hotelvalor.infraestructura,vm.hotelvalor.limpieza)">Guardar</button>
                         </div>
                     </div>
                 </section>
 
             </div>
-            <button type="button" class="btn btn-secondary" ng-click="vm.regresar()">Regresar</button>
+            <button id="btn2" type="button" class="btn btn-secondary" ng-click="vm.regresar()">Regresar</button>
     </section>
 </main>

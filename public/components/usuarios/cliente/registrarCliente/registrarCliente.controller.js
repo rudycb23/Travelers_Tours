@@ -25,9 +25,10 @@
       if (confirmarContrasenna == true) {
         let rol = 2;
 
-        let objNuevoViajero = new Usuario(ptravelerNuevo.cedula, ptravelerNuevo.primerNombre, ptravelerNuevo.segundoNombre, ptravelerNuevo.primerApellido, ptravelerNuevo.segundoApellido, ptravelerNuevo.edad, ptravelerNuevo.genero, ptravelerNuevo.correo, ptravelerNuevo.telefono, ptravelerNuevo.contrasenna, rol);
-
-        console.log(objNuevoViajero);
+        let objNuevoViajero = new Usuario(ptravelerNuevo.cedula, ptravelerNuevo.primerNombre, 
+          ptravelerNuevo.segundoNombre, ptravelerNuevo.primerApellido, ptravelerNuevo.segundoApellido, 
+          ptravelerNuevo.edad, ptravelerNuevo.genero, ptravelerNuevo.correo, ptravelerNuevo.telefono, 
+          ptravelerNuevo.contrasenna, rol);
 
         let registro = servicioUsuarios.agregarUsuario(objNuevoViajero);
         
@@ -35,12 +36,12 @@
         if (registro == true) {
           swal({
             title: "Registro exitoso",
-            text: "Cliente registrado correctamente, se ha enviado un correo electrónico con una contraseña provisional",
+            text: "Cliente registrado correctamente",
             icon: "success",
             button: "Aceptar"
           });
           vm.clienteNuevo = null;
-          $state.go('paginaLogin');
+      
         } else {
           swal({
             title: "Ha ocurrido un Error",

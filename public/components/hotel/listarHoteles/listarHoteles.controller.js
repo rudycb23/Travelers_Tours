@@ -21,6 +21,18 @@
 
         vm.mapa = servicioHoteles.retornarMapa()
 
+
+
+        vm.ordenProvincia = () => {
+            vm.listaHoteles = servicioHoteles.ordenarNombre();
+        }
+        vm.ordenCanton = () => {
+            vm.listaHoteles = servicioHoteles.ordenarNombre();
+        }
+        vm.ordenDistrito = () => {
+            vm.listaHoteles = servicioHoteles.ordenarNombre();
+        }
+
         let reverse = false;
         vm.ordenNombre = () => {
             vm.listaHoteles = servicioHoteles.ordenarNombre(reverse);

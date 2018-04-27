@@ -16,7 +16,7 @@
       setHotelData: _setHotelData,
       updateHotelData: _updateHotelData,
 
-
+      sendMail: _sendMail,
       setData: _setData,
       removeData: _removeData,
       getData: _getData,
