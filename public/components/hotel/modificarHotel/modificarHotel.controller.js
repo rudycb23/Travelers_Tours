@@ -26,8 +26,6 @@
     coords[0] = (hotelActivo.latitud);
     coords[1] = (hotelActivo.longitud);
 
-    console.log(coords);
-
     vm.position = coords;
 
 

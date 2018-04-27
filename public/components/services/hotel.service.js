@@ -18,7 +18,7 @@
             agregarDatosSession: _agregarDatosSession,
             consultarDatosSession: _consultarDatosSession,
             removerDatosSession: _removerDatosSession,
-            retornarMapa: _retornarMapa,
+
             ordenarNombre: _ordenarNombre,
             ordenarRate: _ordenarRate
 
@@ -160,31 +160,6 @@
         function _removerDatosSession() {
             dataStorageFactory.removeData();
         };
-        function _retornarMapa() {
-            let hotelLS = dataStorageFactory.getHotelData(),
-                hotelAct = [],
-                hotelActLS = [];
-            let mapa = [];
-            if (hotelLS == null) {
-                return hotelActLS;
-            } else {
-                for (let i = 0; i < hotelLS.length; i++) {
-                    if (hotelLS[i].estadohotel == true) {
-                        hotelAct.push(hotelLS[i]);
-                    }
-                }
-                hotelAct.forEach(objTemp => {
-
-                    mapa.push(objTemp.latitud);
-                    mapa.push(objTemp.longitud);
-
-
-
-
-                });
-                return mapa;
-            }
-        }
 
         function _ordenarRate(pmayorMenor) {
             let hotelesActivos = _retornarHotelAct();

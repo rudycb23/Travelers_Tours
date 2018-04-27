@@ -19,9 +19,6 @@
 
         vm.listaHotelesDes = servicioHoteles.retornarHotelDesact();
 
-        vm.mapa = servicioHoteles.retornarMapa()
-
-
 
         vm.ordenProvincia = () => {
             vm.listaHoteles = servicioHoteles.ordenarNombre();

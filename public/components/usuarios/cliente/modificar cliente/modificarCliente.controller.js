@@ -4,16 +4,28 @@
         .module('travelersTours')
         .controller('controladorModificarCliente', controladorModificarCliente);
 
-    controladorModificarCliente.$inject = ['$http', '$stateParams', '$state', 'servicioUsuarios', 'servicioLogin'];
+    controladorModificarCliente.$inject = ['$http', '$stateParams', '$state', 'servicioUsuarios', 'servicioLogin', 'imageUploadService', 'Upload'];
 
-    function controladorModificarCliente($http, $stateParams, $state, servicioUsuarios, servicioLogin) {
+    function controladorModificarCliente($http, $stateParams, $state, servicioUsuarios, servicioLogin, imageUploadService, Upload) {
 
         const vm = this;
         const userAuth = servicioLogin.getAuthUser();
         let usuarioActivo = userAuth.getCorreo();
         vm.travelerNuevo = {};
 
-        vm.RegistrarViajero = (ptravelerNuevo) => {
+
+        vm.cloudObj = imageUploadService.getConfiguration();
+
+        vm.preRegistrarViajero = (ptravelerNuevo) => {
+    
+          vm.cloudObj.data.file = ptravelerNuevo.photo[0];
+          Upload.upload(vm.cloudObj).success((data) => {
+            vm.RegistrarViajero(ptravelerNuevo, data.url);
+          });
+        }
+    
+
+        vm.RegistrarViajero = (ptravelerNuevo, urlImagen) => {
 
             let confirmarContrasenna = false,
                 contrasenna1 = vm.travelerNuevo.contrasenna,
@@ -29,7 +41,7 @@
                 let objNuevoViajero = new Usuario(ptravelerNuevo.cedula, ptravelerNuevo.primerNombre,
                     ptravelerNuevo.segundoNombre, ptravelerNuevo.primerApellido, ptravelerNuevo.segundoApellido,
                     ptravelerNuevo.edad, ptravelerNuevo.genero, usuarioActivo.correo, ptravelerNuevo.telefono,
-                    ptravelerNuevo.contrasenna, rol);
+                    ptravelerNuevo.contrasenna, rol,ptravelerNuevo.fotoCliente);
 
                 let registro = servicioUsuarios.actualizarUsuario(objNuevoViajero);
 

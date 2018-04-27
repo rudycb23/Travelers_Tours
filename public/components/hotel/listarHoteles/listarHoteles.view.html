@@ -12,19 +12,23 @@
           <thead>
             <tr>
               <th scope="col">#</th>
-         
-              <th scope="col"><button type="click" class="btn" ng-click="vm.ordenNombre()">
+
+              <th scope="col">
+                <button type="click" class="btn" ng-click="vm.ordenNombre()">
                   Nombre
-                </button></th>
+                </button>
+              </th>
               <th scope="col">Provincia</th>
               <th scope="col">Cantón</th>
               <th scope="col">Distrito</th>
               <th scope="col">
-                  <button type="click" class="btn" ng-click="vm.ordenRate()">
-                      Valoracion
-                    </button>
-                </th>
-              <th scope="col">Información</th>
+                <button type="click" class="btn" ng-click="vm.ordenRate()">
+                  Valoracion
+                </button>
+              </th>
+              <th scope="col">Foto</th>
+              <th scope="col">Mapa</th>
+              <th scope="col">Info</th>
               <th scope="col" ng-if="vm.rol==1">Acción</th>
             </tr>
           </thead>
@@ -35,11 +39,35 @@
               <td>{{Hotel.provincia}}</td>
               <td>{{Hotel.canton}}</td>
               <td>{{Hotel.distrito}}</td>
-              <td><div id="trofeoOro" ng-if="Hotel.valoracion==5"> <img src="../../../sources/img/trofeoOro.png" alt="" srcset=""></div>
-                  <div id="trofeoPlata" ng-if="Hotel.valoracion==4"> <img src="../../../sources/img/trofeoSilver.png" alt="" srcset=""></div>
-                  <div id="trofeoBronce" ng-if="Hotel.valoracion==3"> <img src="../../../sources/img/trofeoBronce.png" alt="" srcset=""></div>
-                  <div id="trofeoAzul" ng-if="Hotel.valoracion==2"> <img src="../../../sources/img/trofeoVerde.png" alt="" srcset=""></div>
-                  <div id="trofeoRojo" ng-if="Hotel.valoracion==1"> <img src="../../../sources/img/trofeoNegro.png" alt="" srcset=""></div></td>
+              <td>
+                <div id="trofeoOro" ng-if="Hotel.valoracion==5">
+                  <img src="../../../sources/img/trofeoOro.png" alt="" srcset="">
+                </div>
+                <div id="trofeoPlata" ng-if="Hotel.valoracion==4">
+                  <img src="../../../sources/img/trofeoSilver.png" alt="" srcset="">
+                </div>
+                <div id="trofeoBronce" ng-if="Hotel.valoracion==3">
+                  <img src="../../../sources/img/trofeoBronce.png" alt="" srcset="">
+                </div>
+                <div id="trofeoAzul" ng-if="Hotel.valoracion==2">
+                  <img src="../../../sources/img/trofeoVerde.png" alt="" srcset="">
+                </div>
+                <div id="trofeoRojo" ng-if="Hotel.valoracion==1">
+                  <img src="../../../sources/img/trofeoNegro.png" alt="" srcset="">
+                </div>
+              </td>
+
+              <td>
+                <div>
+                  <img src="{{Hotel.fotoHotel}}" class="img-fluid rounded-circle" width="400px" height="400px" alt="">
+                </div>
+              </td>
+              <td class="col-md-6">
+                  <ng-map center="{{Hotel.mapa}}" zoom="14">
+                      <marker position="{{Hotel.mapa}}"></marker>
+                  </ng-map>
+              </td>
+              
               <td>
                 <button type="click" class="btn" ng-click="vm.consultar(Hotel.idHotel)">
                   Consultar

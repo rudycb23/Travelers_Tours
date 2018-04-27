@@ -1,5 +1,5 @@
 class Usuario {
-  constructor(pcedula, pprimerNombre, psegundoNombre, pprimerApellido, psegundoApellido, pedad, pgenero, pcorreo, ptelefono, pcontrasenna, prol) {
+  constructor(pcedula, pprimerNombre, psegundoNombre, pprimerApellido, psegundoApellido, pedad, pgenero, pcorreo, ptelefono, pcontrasenna, prol,pfotoCliente) {
     this.cedula           = pcedula;
     this.primerNombre     = pprimerNombre;
     this.segundoNombre    = psegundoNombre;
@@ -11,6 +11,7 @@ class Usuario {
     this.telefono         = ptelefono;
     this.contrasenna      = pcontrasenna;
     this.rol              = prol;
+    this.fotoCliente     = pfotoCliente;
   }
 
   getCorreo() {

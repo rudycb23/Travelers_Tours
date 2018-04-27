@@ -64,17 +64,18 @@
         dataType: 'json',
         async: false,
         data: {
-          'cedula': data.cedula,
-          'primerNombre': data.primerNombre,
-          'segundoNombre': data.segundoNombre,
-          'primerApellido': data.primerApellido,
-          'segundoApellido': data.segundoApellido,
-          'edad': data.edad,
-          'genero': data.genero,
-          'correo': data.correo,
-          'telefono': data.telefono,
-          'contrasenna': data.contrasenna,
-          'rol': data.rol
+          'cedula'            : data.cedula,
+          'primerNombre'      : data.primerNombre,
+          'segundoNombre'     : data.segundoNombre,
+          'primerApellido'    : data.primerApellido,
+          'segundoApellido'   : data.segundoApellido,
+          'edad'              : data.edad,
+          'genero'            : data.genero,
+          'correo'            : data.correo,
+          'telefono'          : data.telefono,
+          'contrasenna'       : data.contrasenna,
+          'rol'               : data.rol,
+          'fotoCliente'       : data.fotoCliente
         }
       });
 
@@ -101,17 +102,18 @@
         async: false,
         data: {
 
-          'cedula': data.cedula,
-          'primerNombre': data.primerNombre,
-          'segundoNombre': data.segundoNombre,
-          'primerApellido': data.primerApellido,
-          'segundoApellido': data.segundoApellido,
-          'edad': data.edad,
-          'genero': data.genero,
-          'correo': data.correo,
-          'telefono': data.telefono,
-          'contrasenna': data.contrasenna,
-          'rol': data.rol
+          'cedula'          : data.cedula,
+          'primerNombre'    : data.primerNombre,
+          'segundoNombre'   : data.segundoNombre,
+          'primerApellido'  : data.primerApellido,
+          'segundoApellido' : data.segundoApellido,
+          'edad'            : data.edad,
+          'genero'          : data.genero,
+          'correo'          : data.correo,
+          'telefono'        : data.telefono,
+          'contrasenna'     : data.contrasenna,
+          'rol'             : data.rol,
+          'fotoCliente'     : data.fotoCliente
 
         }
       });

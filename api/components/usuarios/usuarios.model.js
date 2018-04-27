@@ -13,6 +13,7 @@ let UserSchema = new mongoose.Schema({
   telefono:         { type: String, require: true },
   contrasenna:      { type: String, require: true },
   rol:              { type: String, require: true },
+  fotoCliente:      { type: String, require:true  },
 
 });
 

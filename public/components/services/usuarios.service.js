@@ -63,7 +63,7 @@
       listadeusuarioslocal.forEach(obj => {
         let tempfecha = new Date(obj.edad);
 
-        let tempCliente = new Usuario(obj.cedula, obj.primerNombre, obj.segundoNombre, obj.primerApellido, obj.segundoApellido, obj.edad, obj.genero, obj.correo, obj.telefono, obj.contrasenna, obj.rol);
+        let tempCliente = new Usuario(obj.cedula, obj.primerNombre, obj.segundoNombre, obj.primerApellido, obj.segundoApellido, obj.edad, obj.genero, obj.correo, obj.telefono, obj.contrasenna, obj.rol, obj.fotoCliente);
 
         listadeusuarios.push(tempCliente);
 

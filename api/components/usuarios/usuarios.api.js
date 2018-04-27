@@ -12,7 +12,8 @@ module.exports.registrar = (req, res) => {
     correo          : req.body.correo,
     telefono        : req.body.telefono,
     contrasenna     : req.body.contrasenna,
-    rol             : req.body.rol
+    rol             : req.body.rol,
+    fotoCliente     : req.body.fotoCliente
   });
 
   newTraveler.save((err) => {
